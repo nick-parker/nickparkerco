@@ -1,8 +1,8 @@
-import BasicPage from '../../components/basic-page'
+import ExcitingPage from '../../components/exciting-page'
 
 export default function p() {
     return (
-        <BasicPage title="">
-        </BasicPage>
+        <ExcitingPage title="">
+        </ExcitingPage>
     )
 }
