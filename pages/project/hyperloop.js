@@ -15,9 +15,13 @@ export default function Hyperloop() {
             claim to a nebulous "top 10" place. In the second year of the competition the improved OpenLoop pod placed 2nd under the new banner
             of <a href="https://paradigmhyperloop.com/">Paradigm Hyperloop</a>.
             <br/><br/>
-            Many of my best friends and hardest-fought lessons came from this project, and I'm enormously thankful for the engineering and leadership experience it provided even
-            though I wasn't ready for it. OpenLoop is also featured in a <a href="https://www.amazon.com/The-Design/dp/B07Q8J3K3Z">documentary</a> by Legendary Pictures
-            so you can see my 19-year-old blunders in high definition.
+            Many of my best friends and hardest-fought lessons came from this project, and I'm enormously thankful for the engineering and leadership
+            experience it provided even though I wasn't ready for it. OpenLoop is also featured in
+            a <a href="https://www.amazon.com/The-Design/dp/B07Q8J3K3Z">documentary</a> by Legendary Pictures so you can see my 19-year-old blunders in high
+            definition.
+            <br/><br/>
+            Lastly, OpenLoop led me to take a systems engineering internship with <a href="https://hyperloop-one.com/">Hyperloop One</a> after my Junior year which 
+            was a fantastic experience. My team was brilliant and they paid me to learn tons of new skills.
 
         </BasicPage>
     )

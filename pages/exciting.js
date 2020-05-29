@@ -4,11 +4,13 @@ import CardGrid from '../components/card-grid'
 const exciting_techs = [
     {
         href: "/exciting/one-click-mfg",
-        title: "One-Click Manufacturing"
+        title: "One-Click Manufacturing",
+        text: "Take humans out of the loop and make hardware a little more like software"
     },
     {
         href: "/exciting/space-based-mfg",
-        title: "Space Based Manufacturing"
+        title: "Space Based Manufacturing",
+        text: "There are materials and systems we can only make off-Earth, and they'll change the world."
     },
     {
         href: "/exciting/archimedes-drive",
@@ -18,31 +20,37 @@ const exciting_techs = [
     {
         href: "/exciting/diaphragm-pistons",
         title: "Diaphragm pistons",
-        text: "Test text"
+        text: "Loosely tolerance DIY-friendly pistons with low hysterisis"
     },
     {
         href:"/exciting/biomimetic-robotics",
-        title: "Biomimetic Robotics"
+        title: "Biomimetic Robotics",
+        text: "Copying biological systems with materials and components biology can't use"
     },
     {
         href:"/exciting/neuromorphic-circuits",
-        title: "Neuromorphic Circuits"
+        title: "Neuromorphic Circuits",
+        text: "Jumbles of plastic-coated nanowires act slightly like brains"
     },
     {
         href:"/exciting/orbital-retirement",
-        title:"Orbital Retirement Homes"
+        title:"Orbital Retirement Homes",
+        text:"Septuagenarians in space."
     },
     {
         href:"/exciting/inflatable-structures",
-        title:"Inflatable Structures"
+        title:"Inflatable Structures",
+        text:"We should build Mars habs on Earth, maybe"
     },
     {
         href:"/exciting/compact-fusion",
-        title:"Compact Fusion Power"
+        title:"Compact Fusion Power",
+        text:"I just want city-ships man"
     },
     {
         href:"/exciting/next-gen-medical-imaging",
-        title:"Next-Gen Medical Imaging"
+        title:"Next-Gen Medical Imaging",
+        text:"Cheap ubiquitous MRI and brain-computer interfaces"
     },
 ]
 
