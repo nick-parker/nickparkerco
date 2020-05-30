@@ -23,6 +23,11 @@ a {
   text-decoration: underline;
 }
 
+p {
+  text-indent: 2em;
+  margin-bottom: 1em;
+}
+
 .section-header {
   @apply text-3xl font-semibold py-3;
   color: #333;
