@@ -24,7 +24,13 @@ all cargo service. Atomic Accidents by James Mahaffey has a great section on a 1
 
 # **General Fusion**
 
-I don't know who's going to pull this off, or when anyone will, but for aesthetic reasons [General Fusion](https://generalfusion.com/technology-magnetized-target-fusion/) is my favorite contender. Their approach is satisfyingly physical: pistons, pressure, and a whirlpool of molten metal. I can viscerally imagine groaning about some tedious problem with my _fusion reactor_ like a bad carburetor on an old car. As I understand it, the three biggest issues for fusion reactors are 1) squeezing hydrogen plasma hard enough that the atoms fuse together, 2) safely capturing the heat of that fusion (thermonukes are not power plants) and 3) keeping the flood of neutrons released from [destroying](https://en.wikipedia.org/wiki/Neutron_radiation#Effects_on_materials) every material in the reactor.   
+I don't know who's going to pull this off, or when anyone will, but for aesthetic reasons [General Fusion](https://generalfusion.com/technology-magnetized-target-fusion/) is my favorite contender. Their approach is satisfyingly physical: pistons, pressure, and a whirlpool of molten metal. I can viscerally imagine groaning about some tedious problem with my _fusion reactor_ like a bad carburetor on an old car. As I understand it, the three big issues for fusion reactors are 
+
+1) Squeezing hydrogen plasma hard and hot enough that the atoms fuse together, 
+
+2) Safely capturing the heat of that fusion to do work (thermonukes are not power plants)
+
+3) Keeping the flood of neutrons released from [destroying](https://en.wikipedia.org/wiki/Neutron_radiation#Effects_on_materials) every material in the reactor.   
 ![General fusion reactor diagram](/images/general-fusion.png)*General fusion reactor diagram. Source: Wikimedia*
 
 General Fusion is building a sphere of molten lead and lithium a few meters in diameter and using pumps to spin the metal so a siphon
@@ -72,4 +78,3 @@ a single lifetime almost all your lead-210 will turn back into stable lead-206. 
 The other interesting bit related to neutron capture is [tritrium breeding](https://en.wikipedia.org/wiki/Breeding_blanket) which General
 Fusion plans to achieve by mixing molten lithium into their molten lead. This will also improve the capture cross section of the mixture, further
 protecting the solid components from neutron damage. 
-</Footnote>
