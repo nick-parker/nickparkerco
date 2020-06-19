@@ -4,3 +4,65 @@ date: "2020-06-10"
 lede: "There are materials and systems we can only make off-Earth, and they'll change the world."
 thumb: ""
 ---
+
+There are physical products we simply cannot make on planet Earth, and some of them are so useful they're worth importing from orbit. This is the technology I'm most excited about right now. Thanks to SpaceX's invention of rapidly reusable rockets I think it will burst into the mainstream well before 2030, and the only reason I'm not working on it directly is I can do more for terrestrial 3D printing with the leverage available to me.
+# Terrestrial industry is parochial
+From a 30,000 AU view, putting our industrial processes in an ambient acceleration of 10 m/s^2 and a thick, wet, corrosive atmosphere doesn't make sense. If you don't know our civilization started on Earth and we all live here, those choices look like bad engineering.
+The story of tech progress is about controlling our environment. Walls to block wind, rain, and wolves, furnaces to smelt metal, artificial light, air conditioning, clean rooms and vacuum chambers are all tools to grab fundamental forces and _twist_ until the universe does what we want.
+Space offers us three new environmental controls: microgravity, unlimited access to hard vacuum, and 24/7 full spectrum radiation access to the sun and the void. 
+## Microgravity
+    Cool micro-G pic. Spherical flame?
+
+Gravity is one of the last aspects of our environment that refuses to yield. You can fly a gut-wrenching arc for about 30 seconds and experience freedom, but that's borrowed time. At the end of the arc you either pay back all the gravity you avoided with acceleration or crash into the Earth. The only true escape is to fly an arc so long you fall toward the Earth and miss: _Orbit_.
+
+The [LISA Pathfinder](https://www.elisascience.org/articles/lisa-pathfinder) mission might be the purest expression of this freedom. The satellite carried two cubes inside it which were allowed to fly freely with no solid connection to the main craft. The satellite body shielded the cubes from trace atmosphere and radiation allowing them to fly in a nearly perfect orbit with almost no forces other than gravity acting on them. This technology will be used in the main LISA mission to track the relative positions of three satellites millions of kilometers apart to less than the diameter of an atom. On Earth we invest enormous effort in holding precision instruments up against gravity while also isolating them from vibrations. On orbit you just don't touch them.
+Gravity is pervasive here on Earth so its absence has too many effects to describe in detail here. The highlight reel is:
+
+1. System components can be perfectly separated with no solid material connecting them . This is great for vibration isolation as in LISA and for safe handling of reactive, hot, cold, or otherwise exciting materials.
+
+2. Mixtures, solutions, and suspensions are much more stable. Things sink and float in gravity, and pressure increases with depth, all of which make all sorts of processes harder than they need to be. Vat-grown replacement organs, novel superalloys and new high performance optical materials are all blocked on Earth by these issues.
+
+3. Large scale structures don't have support themselves. Today's space structures lead odd lives: They're built in 1G, spend a few terrifying minutes at 3+G atop a rocket, and then live out their days with effectively no force on them. Structures built on orbit will need to resist functional loads like the pressure of atmosphere inside a space station or the thrust of station-keeping engines, but that's it. They can use orders of magnitude less material than terrestrial counterparts, allowing us to construct kilometer-scale structures in the not-too-far future.
+
+4. Other forces such as surface tension dominate which makes it easy to produce perfect spheres, thin walled bubbles, uniform foams, and other mesoscale structures.
+
+As a final note on microgravity, I'm obligated to mention [ZBLAN fiber](https://upward.issnationallab.org/the-race-to-manufacture-zblan/). It's almost guaranteed to be the first commercially viable product manufactured on orbit and sold on Earth. ZBLAN is a high entropy alloy of five fluoride glasses which could theoretically produce optical fibers 100 times clearer than current silica glass fibers. That improvement would let us build new more sensitive fiber-optic instruments and repeater-less transoceanic cables. I highly recommend reading Neil Stephenson's 1996 piece of gonzo journalism [Mother Earth Mother Board](https://www.wired.com/1996/12/ffglass/) where he follows the first privately funded transoceanic cable around the planet as it's being built. Transoceanic cables are one of the many incredibly difficult, expensive, almost invisible capital projects that keep our world running, and getting rid of repeaters in them would be a huge win. **That's why good ZBLAN fiber is worth in the neighborhood of $150/foot or $500,000 per kilogram.**
+
+    ZBLAN fiber comparison pic
+
+ZBLAN fiber made in Earths gravity grows microcrystals on its surface which ruin the smooth optical interface needed for the fiber to work efficiently. Microgravity eliminates the convection and phase separation effects which create the crystals allowing companies to produce usable fiber. Several firms are competing to perfect and commercialize this process in orbit because it would be profitable at present-day launch costs.
+# Hard Vacuum
+    Wake shield facility pic?
+
+The most perfect vacuum in the known universe was made in February 1994 by a twelve foot stainless steel disk flying through low earth orbit. It was called the [Wake Shield Facility](https://en.wikipedia.org/wiki/Wake_Shield_Facility) and it worked by flying through the trace gas of the upper atmosphere at several times the speed of sound so the path cleared by the disk wasn't refilled by gas until the disk and the payload on its back were several meters ahead. Strictly speaking you could do this at sea level, but it would take a lot of thrust and your shield would get very hot.
+
+On Earth vacuum is a local deviation from nature. We work very hard to pull as many gas molecules as we can out of sealed chambers, and usually don't get close to the vacuum of space let alone that of the Wake Shield Facility. Vacuum on Earth is also slow: pump downs take hours or days because there's no economical way to "save up" high vacuum and use it later. If you connect a chamber at 1 atmosphere to a second chamber of perfect vacuum 100 times the size you get two chambers at 1 kPa which is just barely "medium" vacuum, 10,000 times worse than high vacuum and 10 billion times worse than ultra high vacuum.
+
+In orbit the situation is reversed: Vacuum rules and thick atmosphere is the aberration. An industrial process which needs to cycle between hard vacuum and atmosphere can use roughing pumps and reservoir chambers to pull 99+% of the working gas out in seconds then vent what's left to space.
+
+Good vacuum is a key input to the semiconductor tech you're using to read this. Between this, the ease of growing large crystals in microgravity, and the LISA-like benefits for ultra precision vibration isolation, there's a case to be made that cutting edge semiconductor fabs will eventually move to orbit.
+
+# Radiative Freedom
+    Graph of atmospheric absorption
+    
+Earth's atmosphere blocks most of the energy of the sun, and also blocks most of Earth's own thermal energy from flying off into the void of deep space. Those effects are generally helpful for humans since we evolved here but they're an obstacle for engineering. It also doesn't help that the sun goes behind Earth about 50% of the time seen from anywhere on Earth's surface.
+    
+The most direct benefit here is that extreme heat and extreme cold are almost as abundant as vacuum in orbit. Large light-weight reflective optical structures built in-situ can capture enormous amounts of industrial heat from the sun, and the maximum temperature is greater than that of terrestrial solar furnaces because of the broader spectrum. Conversely, any object shaded from the sun will cool to hundreds of degrees below zero by radiating heat to empty space.
+
+Orbits which don't pass through the Earth's shadow also allow photovoltaic power to produce 100% reliable cheap electricity without storage. The economics of beaming that power down to Earth [almost definitely](https://caseyhandmer.wordpress.com/2019/08/20/space-based-solar-power-is-not-a-thing/) [don't work](https://caseyhandmer.wordpress.com/2019/09/20/no-really-space-based-solar-power-is-not-a-useful-idea-literature-review-edition/), but it's a wonderful resource for industry on orbit.
+
+There's also a more niche application that _fascinates_ me which I don't quite understand yet. There's a startup called Astroleux which [wants](https://semiengineering.com/manufacturing-bits-june-2-2/) to capture the EUV light emitted by the sun's corona and use it to perform [EUV lithography](https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography) on orbit. I don't understand this because they say the sun is much brighter than our artificial sources, but from what I can tell the EUV flux at Earth's orbit is measured in milliwatts per square meter. They had experimental optics on the ISS last November though, so I'm sure they know something I don't and this is somewhere between possible and plausible.
+
+EUV light can only be produced by hot ionized matter. EUV is also absorbed by _everything_ and diffracted by nothing - the new lithography machines use [dielectric mirrors](https://en.wikipedia.org/wiki/Dielectric_mirror) - multiple layers of dielectric thin films which reflect specific wavelengths using interference - because it's the only option. These systems blast droplets of tin with powerful lasers to ionize it and emit EUV light, but also a whole host of other wavelengths and hot tin particles, then use delicate thin film optics to collect just the EUV light, bounce it 11 times losing 30% intensity each bounce, and ultimately hit a semiconductor wafer to pattern incomprehensibly small circuits. The laser ionized tin contraption is about 0.02% efficient at delivering EUV to the wafer, and it has a useful lifetime measured in weeks so enjoy your maintenance downtime. That utter insanity is profitable for ASML and others to develop because we want smaller, faster chips _that badly_. So if Astrileux is right about the sun's potential as an EUV source, this might push semiconductor fabs up the gravity well much sooner than expected.
+# Why now?
+This section of my website is for things I expect to happen soon, and space-based manufacturing has bounced around the halls of NASA since the 70s. Why now?
+
+Getting 1 kg of mass to low earth orbit on the space shuttle cost over $20,000/kg, current Falcon 9 prices are $2500/kg,  and Elon Musk claims Starship will be flying in just a couple years for under $100/kg.
+
+The space industry has been about perfectionism for decades because rocket launches cost hundreds of millions of dollars. If you're spending $100M to launch one product once, you probably ought to spend another $100M making sure the product will work.
+
+If launch prices keep dropping the cowboys are going to take over. [Space Forge](https://spaceforge.co.uk/) is one group I have my eye on: They want to manufacture in orbit a few kilograms at a time using cubesats, _deorbit the cubesats_, and fish them out of the ocean. That sounds absurd, but when they're paying $50k per launch and blowing up half their satellites (hopefully in low, quickly decaying orbits) trying to get novel materials to market ASAP their competitors will be filing paperwork to prove they're _not_ going to blow a hole in the ISS. ESA has an experimental cubesat slowly deorbiting [right now](https://www.esa.int/Enabling_Support/Space_Engineering_Technology/Qarman_CubeSat_falling_into_a_fireball), so we'll have exciting new data on the feasibility of Space Forge's plan sometime in Summer 2020.
+
+Profitable industry in space is the first step to millions of people living in space. Expanding human civilization beyond Earth is criticized as an escape boat for climate-wrecking billionaires. Without industry those critics are right, but I'm growing more and more confident the path we're really on is profitable space-based industry first, then mass human habitation to support industry, then habitation for its own sake. It's a new frontier.
+    
+
