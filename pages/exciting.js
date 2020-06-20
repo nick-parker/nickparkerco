@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Nav from '../components/nav'
 import CardGrid from '../components/card-grid'
 import matter from 'gray-matter'
@@ -14,6 +15,9 @@ export default function Exciting(props) {
     })
     return (
     <>
+        <Head>
+          <title>Exciting Tech</title>
+        </Head>
         <Nav/>
         <h1 className="title py-4">Exciting Tech</h1>
         <div className="text-left sm:text-xl md:text-2xl px-8 pb-8">

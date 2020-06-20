@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Nav from '../components/nav'
 import CardGrid from '../components/card-grid'
 
@@ -41,6 +42,9 @@ const projects = [
 export default function Projects() {
     return (
     <>
+        <Head>
+          <title>Projects</title>
+        </Head>
         <Nav/>
         <div>
             <h1 className="title py-4">Projects</h1>
