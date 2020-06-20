@@ -1,10 +1,10 @@
 import Nav from '../components/nav'
+import BasicPage from '../components/basic-page'
 
 
 export default function InfoDiet() {
     return (
-    <>
-    <Nav/>
+    <BasicPage>
     <h1 className="title py-4">Info Diet</h1>
     <div className="text-left sm:text-xl md:text-2xl px-8">
         This is my best-attempt at cataloguing where the info in my head comes from. Most of it's imported you know.
@@ -77,6 +77,6 @@ export default function InfoDiet() {
             <li>Dune series by Frank Herbert</li>
         </ul>
     </div>
-    </>
+    </BasicPage>
     )
 }

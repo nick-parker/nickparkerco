@@ -6,13 +6,13 @@
 }
 
 .title {
-  @apply text-5xl text-center;
+  @apply text-5xl text-center pb-4;
   color: #333;
   line-height: 1.15;
 }
 
 .subtitle {
-  @apply title text-3xl;
+  @apply title text-3xl pb-1;
 }
 
 .profile {
@@ -30,23 +30,43 @@ p {
 
 ol, ul {
   list-style: decimal;
+  list-style-position: inside;
 }
 
-h1 {
-  @apply text-2xl font-bold
+li>p {
+  text-indent: 0em;
 }
 
-h2 {
-  @apply text-xl font-bold
+.markdown h1 {
+  @apply text-2xl font-bold;
+}
+  
+.markdown h2 {
+  @apply text-xl font-bold;
 }
 
-img {
-  @apply mx-auto
+.markdown img {
+  @apply mx-auto;
 }
 
 .section-header {
-  @apply text-3xl font-semibold py-3;
+  @apply text-3xl font-semibold pb-1 pt-4;
   color: #333;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+  padding: 0.5rem;
+}
+   
+.card {
+  border: 2px solid #e7e7e7;
+  text-align: center;
+  border-radius: 4px;
+  padding: .5rem;
 }
 
 @tailwind utilities;

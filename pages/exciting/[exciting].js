@@ -7,10 +7,12 @@ export default function ExcitingPage(props) {
 	return (
 		<BasicPage title={props.frontmatter.title}>
 			<div className="text-lg bg-yellow-200 mx-center text-center mb-4" >Warning: This section of my site describes <span className="italic">my current understanding</span> of tech I'm excited about. Parts of it
-            will be wrong. Please do your research before basing non-trivial decisions on this page.</div>
+            will be wrong. Please do your research before basing non-trivial decisions on this page, and submit any corrections <a href="https://github.com/nick-parker/nickparkerco/issues">here.</a></div>
 			<article>
-				<div>
+				<div className="markdown">
+					{props.markdownBody === "" ? "It looks like I haven't written this yet..." :
 					<ReactMarkdown source={props.markdownBody}/>
+				}
 				</div>
 			</article>
 		</BasicPage>
