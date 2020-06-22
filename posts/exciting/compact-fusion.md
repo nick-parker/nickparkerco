@@ -4,7 +4,7 @@ date: "2020-06-10"
 lede: "I just want enough power-density for city-ships man"
 thumb: ""
 ---
-Teams around the world are trying to build _compact_ nuclear Fusion reactors. I'm in love with this
+Teams around the world are trying to build _compact_ nuclear fusion reactors. I'm in love with this
 mission for largely aesthetic reasons. I don't think we need fusion power to mitigate climate change, nor
 do I think we should bet much on it in that arena. However, if we want to escape "fusion is always 20 years
 away" small reactors that you can iterate fast on feel right to me. This [article](https://www.thedrive.com/the-war-zone/29074/skunk-works-exotic-fusion-reactor-program-moves-forward-with-larger-more-powerful-design) says
