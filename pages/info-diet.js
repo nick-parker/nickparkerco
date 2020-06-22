@@ -1,11 +1,15 @@
 import Nav from '../components/nav'
 import BasicPage from '../components/basic-page'
+import Head from 'next/head'
 
 
 export default function InfoDiet() {
     return (
     <BasicPage>
     <h1 className="title py-4">Info Diet</h1>
+    <Head>
+        <title>Info Diet</title>
+    </Head>
     <div className="text-left sm:text-xl md:text-2xl px-8">
         This is my best-attempt at cataloguing where the info in my head comes from. Most of it's imported you know.
         <h2 className="section-header">Chats</h2>

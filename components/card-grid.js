@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 // import styles from './card-grid.module.css'
 
 function CardGrid({cards}) {
-    let [columns, setColumns] = useState(1)
+    let [columns, setColumns] = useState(0)
     useEffect(() => {
         setColumns(window.innerWidth / 400)
         window.addEventListener('resize', () => {
@@ -12,7 +12,7 @@ function CardGrid({cards}) {
         })
     }, [])
 
-    return (
+    return columns === 0 ? <></> : (
         <div className="cards">
             {cards.map(Card)}
             <style jsx>{`
