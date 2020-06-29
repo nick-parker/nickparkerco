@@ -61,7 +61,7 @@ In broad strokes, that's where we are today. You want a strong, accurate, low ba
 
 # The Exciting New Drive
 
-![Archimedes Drive exploded diagram](/images/archimedes.webp)
+![Archimedes Drive exploded diagram](/images/archimedes.png)
 
 **A company called IMSystems, run by a friendly guy named Jack Schorsch, has invented a much, much simpler alternative to strain wave gearing. I've been showing this thing to mechanical engineers for months and the response is always "How the hell did nobody do that until now?"**
 
