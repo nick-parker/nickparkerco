@@ -7,7 +7,7 @@ thumb: ""
 
 There are physical products we simply cannot make on planet Earth, and some of them are so useful they're worth importing from orbit. This is the technology I'm most excited about right now. Thanks to SpaceX's invention of rapidly reusable rockets I think it will burst into the mainstream well before 2030, and the only reason I'm not working on it directly is I can do more for terrestrial 3D printing with the leverage available to me.
 # Earth-based industry is parochial
-From a 30 trillion foot view, putting our industrial processes in an ambient acceleration of 10 m/s^2 and a thick, wet, corrosive atmosphere doesn't make sense. If you don't know our civilization started on Earth and we all live here, those choices look like bad engineering.
+From a 30 trillion foot view, putting our industrial processes in an ambient acceleration of 10 m/s^2 and a thick, wet, corrosive atmosphere doesn't make sense. If you don't know our civilization started on Earth and we all live here, those choices look like bad engineering. They're parochial: they only make sense in a limited, local context that won't last forever.
 
 The story of tech progress is about controlling our environment. Walls to block wind, rain, and wolves, furnaces to smelt metal, artificial light, air conditioning, clean rooms and vacuum chambers are all tools to grab fundamental forces and _twist_ until the universe does what we want. Space offers us three new environmental controls: microgravity, unlimited access to hard vacuum, and 24/7 full spectrum radiation access to the sun and the void.
 
