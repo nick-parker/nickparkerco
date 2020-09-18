@@ -17,11 +17,11 @@ This old piece of iron was built for life in a real shop, so moving it into my f
 
 # Wiring the Mill
 
-Beyond highly visible features like "larger doors" and "overhead lifts," one of the most important features of 'real' shops is 240V and three phase power hook-ups. The ST-N needs both, and American residential power provides neither.
+Beyond highly visible features like "larger doors" and "overhead lifts," some of the most important features of 'real' shops are 240V single phase and three phase electric power. The ST-N needs both, and American residential power provides neither.
 
-The three phase was solved with yet another gift from our incredible friend: A rotoconverter. This is a stupid simple system where 120V power drives a motor, and that motor drives a generator which outputs three phase power. It's noisy and not the most efficient thing, but it works and he had it laying around. But, the three phase only runs the spindle and the flood coolant pump. If I wanted this thing to _move_ it needed single phase 240V power too.
+The three phase was solved with yet another gift from our incredible friend: A rotoconverter. This is a stupid simple system where 120V power drives a motor, and that motor drives a three phase generator. It's noisy and not the most efficient thing, but it works and he had it laying around. But, the three phase only runs the spindle and the flood coolant pump. If I wanted this thing to _move_ it needed single phase 240V power too.
     ![](/images/rotoconverter.jpg)
-Now for a quick background in US home wiring: Our electric transmission system uses three phase transmission lines at thousands of volts because it packs the most power per pound of transmission line. When that 'kill you dead in an instant' power gets to your local substation it gets stepped down to 240V three phase power - exactly what I get out of my rotoconverter! But from there we only send one 240V phase to each house and transform it again into a _split phase configuration_ 
+Now for a quick background in US home wiring: Our electric transmission system uses three phase transmission lines at thousands of volts because it packs the most power per pound of transmission line. When that 'kill you dead in an instant' power gets to your local substation it's stepped down to 240V three phase power - exactly what I get out of my rotoconverter! But from there we only send one 240V phase to each house and transform it again into a _split phase configuration_ 
 ![](/images/splitphase.jpg)
 In this arrangement our single 240V sine wave turns into two 120V waves with opposite phases like so
 ![](/images/splitphase_waves.jpg)
