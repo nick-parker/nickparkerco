@@ -5,7 +5,6 @@ import matter from 'gray-matter'
 
 export default function p(props) {
     const mill_posts = props.allBlogs.map(post => {
-        console.log(post.slug)
         return {
             href: `/project/cnc-mill/${post.slug}`,
             title: post.frontmatter.title,

@@ -5,7 +5,6 @@ import matter from 'gray-matter'
 
 export default function Exciting(props) {
     const exciting_techs = props.allBlogs.map(post => {
-        console.log(post.slug)
         return {
             href: `/exciting/${post.slug}`,
             title: post.frontmatter.title,

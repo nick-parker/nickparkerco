@@ -21,9 +21,7 @@ export default function ExcitingPage(props) {
 }
 
 export async function getStaticProps({ ...ctx }) {
-	console.log(ctx)
 	const { exciting } = ctx.params
-	console.log(`../../posts/exciting/${exciting}.md`)
 	const content = await import(`../../posts/exciting/${exciting}.md`)
 	const config = await import(`../../data/config.json`)
 	const data = matter(content.default)
@@ -40,7 +38,6 @@ export async function getStaticProps({ ...ctx }) {
 export async function getStaticPaths() {
 	//get all .md files in the posts dir
 	const blogs = glob.sync('posts/exciting/*.md')
-	console.log(blogs)
 	//remove path and extension to leave filename only
 	const blogSlugs = blogs.map(file =>
 		file
@@ -49,7 +46,6 @@ export async function getStaticPaths() {
 			.slice(0, -3)
 			.trim()
 	)
-	console.log(blogSlugs)
 	// create paths with `slug` param
 	const paths = blogSlugs.map(slug => `/${slug}`)
 

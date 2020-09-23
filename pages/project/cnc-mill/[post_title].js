@@ -22,9 +22,7 @@ export default function MillPost(props) {
 }
 
 export async function getStaticProps({ ...ctx }) {
-	console.log(ctx)
 	const { post_title } = ctx.params
-	console.log(`../../posts/cnc-mill/${post_title}.md`)
 	const content = await import(`../../../posts/cnc-mill/${post_title}.md`)
 	const config = await import(`../../../data/config.json`)
 	const data = matter(content.default)
@@ -41,7 +39,6 @@ export async function getStaticProps({ ...ctx }) {
 export async function getStaticPaths() {
 	//get all .md files in the posts dir
 	const blogs = glob.sync('posts/cnc-mill/*.md')
-	console.log(blogs)
 	//remove path and extension to leave filename only
 	const blogSlugs = blogs.map(file =>
 		file
@@ -50,7 +47,6 @@ export async function getStaticPaths() {
 			.slice(0, -3)
 			.trim()
 	)
-	console.log(blogSlugs)
 	// create paths with `slug` param
 	const paths = blogSlugs.map(slug => `/project/${slug}`)
 

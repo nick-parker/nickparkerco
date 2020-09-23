@@ -14,4 +14,6 @@ if __name__ == "__main__":
     plt.xlabel("Time (ms)")
     plt.title("Residential split phase power")
     plt.legend(["Phase 1 to neutral", "Phase 2 to neutral", "Phase 1 to phase 2"])
+    plt.savefig("public/images/splitphase.svg")
+
     plt.show()

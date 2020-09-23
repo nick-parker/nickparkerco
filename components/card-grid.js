@@ -8,7 +8,6 @@ function CardGrid({cards}) {
         setColumns(window.innerWidth / 400)
         window.addEventListener('resize', () => {
             setColumns(Math.round(window.innerWidth / 400))
-            console.log(Math.round(window.innerWidth / 400))
         })
     }, [])
 
