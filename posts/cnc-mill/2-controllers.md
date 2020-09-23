@@ -29,3 +29,5 @@ Apparently around 1980 transistors cost more and coils cost less, because my ste
 That's how mine work, and instead of a step/dir interface which would take extra logic, the drivers simply have four 5V input pins for "turn this coil on." I hooked those up to the FPGA's outputs and configured the firmware in 'table mode' to cycle through an 8 state table of bits for half-stepping, where instead of turning one coil on at a time you turn a coil on, then turn its neighbor on to move a 'half step' between the two, then turn the first coil off for another half step, which doubles your resolution and also increases torque.
 
 I sorted all this out as a kid and had my old PC moving the axes around by the Summer of 2014. Unfortunately that's all I managed to do before leaving for a summer at Rice and then starting undergrad at Cornell. Without a connection between LinuxCNC and the spindle driver the machine couldn't make anything. It sat idle for years while I was away in New York, and I think my Dad nursed a growing resentment over the lost garage space.
+
+## [Next, read my quest to revive the spindle.](/project/cnc-mill/3-spindle-quest)

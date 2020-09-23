@@ -107,3 +107,4 @@ For good measure I made one last mistake and dropped a nut which holds the brush
 
 But I got it out eventually, and as of now this ~45 year old 3 HP spindle motor purrs happily.
 
+## [Next, I fix some sneakier problems with the stepper motors](/project/cnc-mill/4-steppers-redux)

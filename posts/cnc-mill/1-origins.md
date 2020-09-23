@@ -34,4 +34,6 @@ One day I took my sibling out to the garage barefoot to quickly show off a recen
 
 As it turns out, in the 70s the distinction between neutral and ground was a little less respected. There are lug connections to ground throughout the Shizuoka, but a few critical ones were disconnected and a few extra ones were connected to neutral. **Very few of the big cast iron parts of my machine were actually grounded, and most of the others were connected to neutral. In a "real" shop with real 240V wiring that's a harmless distinction with 0V of difference, but on my residential power it meant touching the thing with uninsulated feet on our concrete floor felt pretty bad.**
 
-A couple hours probing with a multimeter and shifting wires around later my mill was safe to touch again, but the object lesson in stressing the details with powerful systems has stuck around.
+A couple hours probing with a multimeter and shifting wires around later my mill was safe to touch again, but the object lesson in stressing the details with powerful systems has stuck around. 
+
+## [Next, read about how I made this antique talk to modern software](/project/cnc-mill/2-controllers)
