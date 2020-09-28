@@ -1,9 +1,16 @@
----
-title: "The Quest to Revive My Spindle"
-date: "2020-09-22"
-lede: "Wherein I reverse engineer the entire system to fix my own mistakes."
-thumb: ""
----
+export const metadata = {
+    title: "The Quest to Revive My Spindle",
+    date: "2020-09-22",
+    lede: "Wherein I reverse engineer the entire system to fix my own mistakes.",
+    thumb: ""
+}
+
+import MillPost from '../../../components/mill-post'
+import Im, {ImSet} from '../../../components/image'
+
+
+<MillPost {...metadata}>
+
 
 One Winter break my Dad and I tracked down a retiree a couple hours away who had experience with the old Shizuoka mills and their spindle drives, and he explained that 9/10 times these drives fail they just need new power diodes and SCRs.
 
@@ -11,15 +18,15 @@ A bit of shopping and soldering later, he was right! We had the original Bandit 
 
 Since the ST-N was originally a manual mill, the factory-built speed input was just a potentiometer ie an adjustable resistance knob on the front panel. When the retrofitting company converted it, they used eight relays and appropriately sized resistors on some breadboard to make a simple digital potentiometer. Weirdly, the resistors were configured for binary coded decimal so they only had 99 steps of spindle speed instead of the 255 they could have made with straight binary. Presumably that was just a quirk of the bandit controller's output.
 
-![](/images/bcd_dac.jpg)
+<Im src="bcd_dac.jpg" cap="The retrofitted binary coded decimal DAC circuit."/>
 
 On-off and direction control on the original mill was a side panel with a direction knob, momentary buttons to start and stop, and toggle functionality provided by these big AC switches which power the stator coils. 
 
-![](/images/stator_switches.jpg)
+<Im src="stator_switches.jpg" cap="AC contactor switches used to power the stator coils, one for each polarity."/>
 
 The retrofitters added these six 24V relays in the side cabinet, and a set of momentary buttons on the front panel to control them. They needed to add a couple relays to replace the physical direction knob in the original spindle control panel, but honestly I think most of the rest of this work was pretty sloppy. They duplicated the latching behavior of the original spindle drive, and there's a __lot__ of duplicated logic within the six relays. Working out how these things function was a weird kind of tedious fun. On the other hand, they designed this without circuit design software so maybe let's not judge them too harshly.
 
-![](/images/spindle_relays.jpg)
+<Im src="spindle_relays.jpg" cap="Horrible rat's nest of relays retrofitted to replace the side panel buttons"/>
 
 I spent a few more hours over the following holiday breaks trying to find a nice way to connect the 0-11V speed input to the LinuxCNC box. This was tricky because I'm not really an electrical engineer and the 0-11V is referenced to my 240V AC neutral input which, as you may remember from earlier, is 120V from ground in my system. I was being very cautious because I didn't want to toast my FPGA or worse my antique stepper drivers by routing 120V through an _actual_ ground someplace.
 
@@ -38,7 +45,7 @@ The rotor drive board in the middle is literally a light dimmer circuit, and onl
 
 The four large heatsinked components below the AC switches are the power components of the rotor drive. This thing is literally a light dimmer: One phase of my 240V three phase power input is applied to a full bridge rectifier which outputs to the rotor, and one leg of that rectifier is a pair of [silicon controlled rectifiers](https://en.wikipedia.org/wiki/Silicon_controlled_rectifier), which are a type of diode that can be turned on with a miniscule current across a gate pin, and will stay on until the voltage from anode to cathode crosses zero. The rotor drive board monitors the current in the stator and pulses the SCR gates earlier or later in the AC waveform to adjust the duty cycle of the rotor and thereby control speed. The SCRs turn off every time the AC wave passes 0V, so you get a chopped sine wave like so as output
 
-![](/images/scr_dimmer.svg)
+<Im src="scr_dimmer.svg" cap="Waveform of a light dimmer style SCR controlled rectifier"/>
 
 The big red transformer makes 110V to run the AC switches, the lube pump, and a few other minor things. The middle components which are normally hidden behind the rotor control board are step-down transformers to make positive and negative logic voltages for the rotor board, one logic transformer to drive the stator board, and a couple needlessly large 10k potentiometers which are used to tune the speed input so the RPM markings on the knob are accurate. I haven't adjusted those.
 
@@ -53,25 +60,29 @@ I didn't get anywhere pursuing that theory with a multimeter and a jumble of not
 
  Since I was sure I was giving the rotor control board correct inputs, the rotor power components were new and wired correctly, and the stator was on, I figured there had to be a safety interlock turning my rotor off. I thought it made sense since the rotor could easily burn out if the motor ran in an incorrect configuration, so I diagrammed the whole rotor control board. Here are some pics of that process so you can admire the hand-drawn, artisanal PCB layout of mid-1970s Japan.
 
- ![](/images/rotor_control_front.jpg)
- ![](/images/rotor_control_back.jpg)
- ![](/images/rotor_control_overlay.jpg)
+<ImSet>
+    <Im src="rotor_control_front.jpg" cap="Rotor control board front side"/>
+    <Im src="rotor_control_back.jpg" cap="Rotor control board backside with most of the traces"/>
+    <Im src="rotor_control_overlay.jpg" cap="Composite of the rotor control board for circuit tracing"/>
+</ImSet>
 
  Here's the resulting schematic, it's confusing as hell. I also drew it slightly wrong, so there was an iterative process here of trying to understand the design, deciding there's _no way_ that portion makes sense, and realizing it wasn't actually connected like that. The worst instance of that game was when I missed a sneaky diagonal connection across the whole board which links the two power supplies' grounds together. For a long time I thought it had two isolated positive power supplies for some bizarre reason, not a single power supply with positive and negative legs.
 
-![](/images/rotor_schematic.jpg)
+<Im src="rotor_schematic.jpg" cap="The rotor control schematic, after rearranging for legibility. I first laid it out with every component placed as it is on the board."/>
 
 The short version of this board's functionality is that it's got a +11V power supply and a -11V power supply each of which is just a rectifier, some caps, and a big fat _zener diode_. I'm not sure if they're using zener shunts to regulate just because it was easy, or if there's some bit of 1980s lore here like perhaps zeners offered more stable voltage than early switching supplies. The third power supply looking affair doesn't have a zener because it's actually rectifying the output of a current sense transformer on one input to the rotor drive. That current sense signal is compared with an op-amp (hence the dual power supply) to the 0-11V speed signal which has been smoothed with a cap and voltage divided down to 0-3.3V with another zener clamping it to that range for good measure. The op-amp has some schmitt trigger logic and a bunch of frequency compensation stuff I don't understand (?) but its output runs via a weirdly complicated series of transistors to eventually power a little isolation transformer which outputs two floating voltages that get put across the cathode and gate pins of the two power SCRs. I _think_ all the extra transistors and capacitors I don't understand are effectively integrating the current sense signal and dumping that sum each half-wave.
 
- I stared at this circuit for a long time but I didn't see any interlock-like functionality, so I moved on to diagramming the rest of the machine and looking for interlocks there. This is an svg, so feel free to zoom.
+ I stared at this circuit for a long time but I didn't see any interlock-like functionality, so I moved on to diagramming the rest of the machine and looking for interlocks there.
 
- ![](/images/full_schematic.svg)
+<a href="/images/full_schematic.svg" target="_blank" rel="noreferrer noopener" style={{textDecoration: 'none'}}>
+ <Im src="full_schematic.svg" cap="The full schematic of my ST-N mill, excluding the ATC controller. This is an svg, so feel free to open it in a new tab and zoom."/>
+ </a>
 
  On a whim, I had brand new graphite brushes for the motor and I figured maybe those were bad in some way so I swapped them, to no effect. Stiff springs press the brushes against the rotor's commutator and make electrical contact with the commutator patches which are wired in an alternating fashion to turn the DC voltage applied across the brushes into appropriately phased AC in each of the rotor's coils.
 
  Now's a good time to mention that the stator power supply is _incredibly poorly mounted_. It faces inward on a bracket, and there's a very important terminal block on the other side of that bracket, so you end up with this inaccessible board cocooned in high voltage wiring. I couldn't even get a good look at it so I called it the 'mystery board' for the first few weeks.
 
- ![](/images/back_cabinet_labels.jpg)
+ <Im src="back_cabinet_labels.jpg" cap="Labeled view of the back cabinet with the rotor control board removed."/>
 
 The 'mystery board' was clearly connected to at least one interlock: It powered one of the relays behind the rotor control board which could interrupt my speed signal. I did some major surgery to detach it from its mounting bracket without undoing too many wires, got several pictures along both sides of its length and eventually convinced myself that a) it's just a rectifying power supply for the stator and b) the only logic onboard checks that the 240V is drawing enough current then enables that relay.
 
@@ -81,11 +92,11 @@ That had me stumped so I bugged Dad and he was a) stumped too and b) annoyed at 
 
 This mysterious behavior renewed my interest in what exactly the ground reference for my 0-11V signal ought to be. Maybe it lost a tie to neutral or ground when I was fixing the whole "the chassis shocks you when touched" problem? In the factory-original system the positive leg of the op-amp power supply was routed across the front potentiometer and so the ground reference was op-amp ground which was simple and reasonable. The retrofitters disconnected the positive lead, made their own power supply from AC up in the Bandit controller box, and ran a floating 0-11V signal back down to the spindle box in these two wires which they hooked up across the original potentiometer. So the front knob actually still worked, but it adjusted between 0 and your commanded speed instead of 0 and the system maximum.
 
-![](/images/potentiometer_wires.jpg)
+<Im src="potentiometer_wires.jpg" cap="The original speed control dial wires, with the retrofitted 11V analog signal connected on the small white wires with stripes."/>
 
 That meant the ground reference should still be op-amp ground, and sure enough one leg of the 0-11V signal was tied to op-amp ground. I measured the speed input pin from the correct ground reference for the first time - every previous probe was relative to the low side of the three potentiometer pins - and the speed input pin was at -5V. The amp had dual supplies so that didn't seem utterly crazy, maybe the current sense came in negative too for whatever reason. But then I noticed this zener diode:
 
-![](/images/key_zener.jpg)
+<Im src="key_zener.jpg" cap="The zener diode on my diagram which made the flipped wire mistake obvious."/>
 
 A negative voltage running past that zener would get clamped to its forward bias, -0.5 volts or so. That's throwing away all my signal! Then it hit me: *What if I flipped the wires*. What if sometime over the years when I was working out how to put 0-11V floating DC into them, or maybe when I fixed the ground issues, or who knows when, what if I flipped the two wires putting voltage across the potentiometer?
 
@@ -97,14 +108,18 @@ How horrible is that? A month of reverse engineering for some flipped wires. I l
 
 That intermittent starting? Also my fault. When I replaced the brushes one of them took a bit of shoving to get in there, and I didn't consider that the things are supposed to slide back and forth smoothly to keep good contact. They're spring loaded because the commutator ring they make contact with probably isn't perfectly centered, plus the graphite wears down. When I popped the thing open I couldn't pull one of them out at all - I thought I was going to yank the wire out of it. Eventually I unmounted its housing and shoved it out from the front. Here's what they looked like - the good one on the left had a nice wear pattern from rubbing on the commutator and the stuck one had a rough finish like it was brand new.
 
-![](/images/graphite_brushes.jpg)
+<Im src="graphite_brushes.jpg" cap="A good brush with worn face on the left, and the stuck brush with a fresh face on the right."/>
 
 For good measure I made one last mistake and dropped a nut which holds the brush's spade connector onto its power lug into the motor. The motor had pretty tight openings to access the brushes on either side, so that took a couple hours of fishing with a boroscope and some wire to fix:
 
-![](/images/lost_nut.jpg)
-![](/images/boroscope_nut.jpg)
-![](/images/rescued_nut.jpg)
+<ImSet>
+    <Im src="lost_nut.jpg" cap="The lug I dropped the nut off of."/>
+    <Im src="boroscope_nut.jpg" cap="A boroscope view of the lost nut in my spindle motor."/>
+    <Im src="rescued_nut.jpg" cap="The nut on my wire hook after I carefully fished it out."/>
+</ImSet>
 
 But I got it out eventually, and as of now this ~45 year old 3 HP spindle motor purrs happily.
 
 ## [Next, I fix some sneakier problems with the stepper motors](/project/cnc-mill/4-steppers-redux)
+
+</MillPost>

@@ -1,15 +1,21 @@
----
-title: "Stepper Interfaces Part 2"
-date: "2020-09-22"
-lede: "You thought this thing was done didn't you?"
+export const metadata = {
+title: "Stepper Interfaces Part 2",
+date: "2020-09-22",
+lede: "You thought this thing was done didn't you?",
 thumb: ""
----
+}
+
+import MillPost from '../../../components/mill-post'
+import Im, {ImSet} from '../../../components/image'
+
+
+<MillPost {...metadata}>
 
 We left off last time with a fully functional mill! Right? I've got motion control, I've got reliable spindle control, life is good!
 
 Well, no. I was trying to machine some 1/4" aluminum to replace a piece of the tilt axis on Praxis's prototype five-axis 3D printer and under fairly modest tool forces the Y axis lost a ton of steps, a corner got cut short, and my cutter plowed through a key region of the part. Wups!
 
-![](/images/lost_steps.jpg)
+<Im src="lost_steps.jpg" cap="The failed aluminum cut which tipped me off to my broken stepper control circuit."/>
 
 A stepper motor "loses steps" when the coils can't pull the next tooth of the rotor hard enough to overcome the torques being applied to the motor. When that happens the rotor simply doesn't move, which might sound OK except it _never recovers_. The advantage of stepper motors is that you always know where they are because each command moves them a fixed distance. Most electric motors only have control over their power, so how far they turn depends on the load and you need feedback sensors to move them accurately. Steppers will always be exactly where you tell them to be, unless you overload them and _lose steps_, and then they'll be incorrectly positioned by a fixed distance until you reset them.
 
@@ -17,12 +23,12 @@ That led to some closer inspection which showed that my steppers, which nominall
 
 I spent far too much time watching two channels of the drivers' inputs or outputs at a time using my oscilloscope and eventually convinced myself the thing was working as I expected - each pin controls one phase, and I was stepping through them in the right order. My firmware was just doing spurious things at the end of every cycle through the table.
 
-![](/images/8step.jpg)
+<Im src="8step.jpg" cap="Two tables showing my expected pattern of steps with active coils in green and inactive in grey. The yellow boxes indicate undefined states where the behavior didn't depend on my configured table."/>
 
 
 If I changed the number of entries in the table, same behavior. One extra state  with undefined behavior no matter how I configured it. Even if I changed the table to just power the same pin in every state, there'd be an extra state where it did something else.
 
-![](/images/4step.jpg)
+<Im src="4step.jpg" cap="Four more tables showing simpler tables I used to debug the system's behavior."/>
 
 
 It seemed for all the world like someone had made an off-by-one mistake in LinuxCNC's table mode and I was getting one byte of completely random data each cycle, but this project dates back to the 90s how could it have such a simple bug?
@@ -35,6 +41,8 @@ Fortunately before I jumped down that rabbit hole I took one more look at my cir
 
 My original table from High School did just that - it was the bitwise inverse of the table I entered after updating LinuxCNC, but I forgot that detail in the switch and amazingly the steppers still functioned in that mode. Instead of alternating between powering one phase and two phases in traditional half-stepping, I was switching between three phases and two, but since they still progressed around the motor in the right fashion the step directions and sizes all worked out. 
 
-![](/images/inverted_steps.jpg)
+<Im src="inverted_steps.jpg" cap="A table showing my last error in stepper configuration, where the active (green) and inactive (grey) coil states were all flipped. This error was present in all the previous debugging steps, and yet the motors almost entirely behaved as expected."/>
 
 After fixing that I had one last issue where my step resolution was still configured for the 9/8 scaling caused by the off-by-one issue so I cut a couple parts 11.11% smaller than I meant to, but I spotted that after a couple days and this thing _finally, actually, works_.
+
+</MillPost>

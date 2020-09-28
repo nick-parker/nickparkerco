@@ -1,15 +1,25 @@
----
-title: "CNC Mill Origins"
-date: "2020-09-17"
-lede: "A 2 ton machine moves into the family garage"
-thumb: ""
----
+export const metadata = {
+    title:  "CNC Mill Origins",
+    date: "2020-09-17",
+    lede:  "A 2 ton machine moves into the family garage",
+    thumb: ""
+}
+
+import MillPost from '../../../components/mill-post'
+import Im, {ImSet} from '../../../components/image'
+
+
+<MillPost {...metadata}>
 
 When I was 17 I wanted to build a CNC milling machine from scratch. I was designing a flimsy aluminum extrusion gantry that would _maybe_ be able to cut aluminum slowly with a very small tool. It would've looked and cost about the same as this [OpenBuilds](https://openbuildspartstore.com/openbuilds-sphinx-55-20-x-20/) machine.
 A dear family friend runs a machine shop 20 minutes from my childhood home, so I emailed him for advice on a $60 spindle. He explained that the spindle was terrible, then replied "You're in luck. I have an old machine I was going to take apart and sell for scrap."
 A few weeks and a hired truck later, my dad permanently lost a car worth of space in his garage:
-    ![](/images/mill_arrival.jpg)
-    ![](/images/mill_dirty.jpg)
+
+<ImSet>
+    <Im src="mill_arrival.jpg" cap="The mill arriving on a hired lowboy truck"/>
+    <Im src="mill_dirty.jpg" cap="A fairly greasy mill right after placement in the garage."/>
+</ImSet>
+
 The machine my friend was going to scrap is a Shizuoka ST-N which was imported new from Japan around 1980 and retrofitted with stepper motors, a Bandit III CNC controller, and a Summit-Dana Quickdraw automatic tool changer.
 It weighs in at around 4000 lbs, it was designed to interface with teletype or the _powerful, new, Apple II_, and it could store 1000 lines of program memory. My friend was scrapping it because the controller had died yet again and it wasn't worth the space in his shop anymore.
 
@@ -20,11 +30,15 @@ This old piece of iron was built for life in a real shop, so moving it into my f
 Beyond highly visible features like "larger doors" and "overhead lifts," some of the most important features of 'real' shops are 240V single phase and three phase electric power. The ST-N needs both, and American residential power provides neither.
 
 The three phase was solved with yet another gift from our incredible friend: A rotoconverter. This is a stupid simple system where 120V power drives a motor, and that motor drives a three phase generator. It's noisy and not the most efficient thing, but it works and he had it laying around. But, the three phase only runs the spindle and the flood coolant pump. If I wanted this thing to _move_ it needed single phase 240V power too.
-    ![](/images/rotoconverter.jpg)
-Now for a quick background in US home wiring: Our electric transmission system uses three phase transmission lines at thousands of volts because it packs the most power per pound of transmission line. When that 'kill you dead in an instant' power gets to your local substation it's stepped down to 240V three phase power - exactly what I get out of my rotoconverter! But from there we only send one 240V phase to each house and transform it again into a _split phase configuration_ 
-![](/images/splitphase.svg)
-In this arrangement our single 240V sine wave turns into two 120V waves with opposite phases like so
-![](/images/splitphase_waves.jpg)
+
+<Im src="rotoconverter.jpg" cap="My rotoconverter, hidden in a corner of the garage."/>
+
+Now for a quick background in US home wiring: Our electric transmission system uses three phase transmission lines at thousands of volts because it packs the most power per pound of transmission line. When that 'kill you dead in an instant' power gets to your local substation it's stepped down to 240V three phase power - exactly what I get out of my rotoconverter! But from there we only send one 240V phase to each house and transform it again into a _split phase configuration_. In this arrangement our single 240V sine wave turns into two 120V waves with opposite phases like so
+
+<ImSet>
+    <Im src="splitphase.jpg" cap="Splitphase transformer wiring"/>
+    <Im src="splitphase.svg" cap="Two periods of the splitphase power waveform"/>
+</ImSet>
 
 120V is a happy medium voltage for households. It can run your toaster and hair dryer but it's not too easy to kill yourself with. It's also convenient because if you do want 240V power for say, your clothes dryer, or your CNC mill, you can wire the two 120V phases to the hot and neutral inputs of your appliance and because they're out of phase you get 240V of AC voltage across them, just like you had before the transformer. _Except_, with "real" 240V power neutral and ground have no potential between them, and with split phase 240V both hot and neutral are 120V away from ground. This turns out to be important.
 
@@ -37,3 +51,5 @@ As it turns out, in the 70s the distinction between neutral and ground was a lit
 A couple hours probing with a multimeter and shifting wires around later my mill was safe to touch again, but the object lesson in stressing the details with powerful systems has stuck around. 
 
 ## [Next, read about how I made this antique talk to modern software](/project/cnc-mill/2-controllers)
+
+</MillPost>

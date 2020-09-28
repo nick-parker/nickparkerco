@@ -1,12 +1,17 @@
----
-title: "CNC Mill Conversion to LinuxCNC"
-date: "2020-09-22"
-lede: "Replacing Apple II era handmade electronics with an old tower and an FPGA"
-thumb: ""
----
+export const metadata = {
+    title: "Conversion to LinuxCNC",
+    date: "2020-09-22",
+    lede: "Replacing Apple II era handmade electronics with an old tower and an FPGA",
+    thumb: ""
+}
+
+import MillPost from '../../../components/mill-post'
+import Im, {ImSet} from '../../../components/image'
+
+<MillPost {...metadata}>
 
 The next phase of the project was moving the system off the original Bandit controller onto something that could talk to modern CAM packages. The Bandit is a beautiful piece of computing history: 7 cards of hand-soldered through-hole 76 series logic mounted to a backplane, but 1000 program lines rules out significant surface profiling, and the old dialect of gcode it runs would have taken a lot of fiddling to make teach a CAM package to output.
-![](/images/bandit.jpg)
+<Im src="bandit.jpg" cap="The original Bandit controller, with its card cage lifted out of the cabinet."/>
 
 I ended up using LinuxCNC to run the system off an ancient desktop tower. Running a stepper or servo motor controlled machine is a mix of fairly soft realtime and hard realtime problems: Deciding where to go, computing the velocity and acceleration curves, and controlling all the auxiliary functions like the spindle, coolant, and tool change system, can all be done with milliseconds of latency. At that level just about any modern computer will keep up without any trouble. My system has 1 GB of ram and a mid-2000s Pentium 4 processor, and that does the job.
 
@@ -24,10 +29,12 @@ Most modern stepper motors have just two sets of coils, and they use H-bridge li
 
 Apparently around 1980 transistors cost more and coils cost less, because my stepper drives don't bother with all that. Instead, the motors weigh 18 pounds and each contain four unipolar sets of coils. With four coils the arrangement of the motor is much easier to visualize. At each full step position one coil is powered and its two neighbors have teeth pointing off to one side of them.
 
-![](/images/big_stepper.jpg)
+<Im src="big_stepper.jpg" cap="My Y axis stepper motor, with a hand for scale."/>
 
 That's how mine work, and instead of a step/dir interface which would take extra logic, the drivers simply have four 5V input pins for "turn this coil on." I hooked those up to the FPGA's outputs and configured the firmware in 'table mode' to cycle through an 8 state table of bits for half-stepping, where instead of turning one coil on at a time you turn a coil on, then turn its neighbor on to move a 'half step' between the two, then turn the first coil off for another half step, which doubles your resolution and also increases torque.
 
 I sorted all this out as a kid and had my old PC moving the axes around by the Summer of 2014. Unfortunately that's all I managed to do before leaving for a summer at Rice and then starting undergrad at Cornell. Without a connection between LinuxCNC and the spindle driver the machine couldn't make anything. It sat idle for years while I was away in New York, and I think my Dad nursed a growing resentment over the lost garage space.
 
 ## [Next, read my quest to revive the spindle.](/project/cnc-mill/3-spindle-quest)
+
+</MillPost>

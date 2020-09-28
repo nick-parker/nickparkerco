@@ -1,15 +1,13 @@
 import BasicPage from '../../../components/basic-page'
 import CardGrid from '../../../components/card-grid'
-import matter from 'gray-matter'
-
 
 export default function p(props) {
     const mill_posts = props.allBlogs.map(post => {
         return {
             href: `/project/cnc-mill/${post.slug}`,
-            title: post.frontmatter.title,
-            text: post.frontmatter.lede,
-            image: post.frontmatter.thumb
+            title: post.metadata.title,
+            text: post.metadata.lede,
+            image: post.metadata.thumb
         }
     })
     return (
@@ -30,8 +28,8 @@ export async function getStaticProps() {
     //get posts & context from folder
     const posts = (context => {
       const keys = context.keys()
-      const values = keys.map(context)
-  
+      console.log(keys)
+      const values = keys.map(context)  
       const data = keys.map((key, index) => {
         // Create slug from filename
         const slug = key
@@ -41,15 +39,10 @@ export async function getStaticProps() {
           .join('.')
         const value = values[index]
         // Parse yaml metadata & markdownbody in document
-        const document = matter(value.default)
-        return {
-          frontmatter: document.data,
-          markdownBody: document.content,
-          slug,
-        }
+        return {metadata: value.metadata, slug: slug}
       })
       return data
-    })(require.context('../../../posts/cnc-mill', true, /\.md$/))
+    })(require.context('./', true, /\.mdx$/))
   
     return {
       props: {
