@@ -1,17 +1,8 @@
 import Head from 'next/head'
-import Nav from '../components/nav'
-import CardGrid from '../components/card-grid'
-import matter from 'gray-matter'
+import Nav from '../../components/nav'
+import CardGrid from '../../components/card-grid'
 
-export default function Exciting(props) {
-    const exciting_techs = props.allBlogs.map(post => {
-        return {
-            href: `/exciting/${post.slug}`,
-            title: post.frontmatter.title,
-            text: post.frontmatter.lede,
-            image: post.frontmatter.thumb
-        }
-    })
+export default function Exciting({exciting_techs}) {
     return (
     <>
         <Head>
@@ -32,7 +23,7 @@ export default function Exciting(props) {
 
 
 export async function getStaticProps() {
-    const siteConfig = await import(`../data/config.json`)
+    const siteConfig = await import(`../../data/config.json`)
     //get posts & context from folder
     const posts = (context => {
       const keys = context.keys()
@@ -46,20 +37,19 @@ export async function getStaticProps() {
           .slice(0, -1)
           .join('.')
         const value = values[index]
-        // Parse yaml metadata & markdownbody in document
-        const document = matter(value.default)
         return {
-          frontmatter: document.data,
-          markdownBody: document.content,
-          slug,
+			href: `/exciting/${slug}`,
+            title: value.metadata.title,
+            text: value.metadata.lede,
+            image: value.metadata.thumb
         }
       })
       return data
-    })(require.context('../posts/exciting', true, /\.md$/))
+    })(require.context('./', true, /\.mdx$/))
   
     return {
       props: {
-        allBlogs: posts,
+        exciting_techs: posts,
         title: siteConfig.default.title,
         description: siteConfig.default.description,
       },
