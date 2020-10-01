@@ -67,6 +67,11 @@ li>p {
   text-align: center;
   border-radius: 4px;
   padding: .5rem;
+  cursor: pointer;
+}
+
+.card:hover {
+    border: 2px solid #bcbcbc;
 }
 
 @tailwind utilities;
