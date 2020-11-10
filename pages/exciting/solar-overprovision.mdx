@@ -1,20 +1,31 @@
+export const metadata = {
+    title: "Solar Overprovisioning",
+    date: "2020-11-09",
+    lede: "Too cheap to meter power",
+    thumb: ""
+}
+
+
+import Im, {ImSet} from '../../components/image'
+import ExcitingPage from '../../components/exciting-page'
+
+<ExcitingPage {...metadata}>
+
 In the not-too-distant future the fair market value of all coal assets will be $0, or negative if governments force owners to safely decommission the plants and mines. This turning point will come when the _total_ cost of energy from utility scale solar drops below the _operating_ cost of coal power plants.
 
 ![](/images/lazard_lcoe_comp.jpeg)
 
-Ramez Naam has a fantastic [post](https://rameznaam.com/2020/05/14/solars-future-is-insanely-cheap-2020/) about this trend.  This Exciting Tech post is written less well than most because really, you should just go read his post and Casey Handmer's [rant](https://caseyhandmer.wordpress.com/2020/06/05/australian-energy-policy-no-vision-too-small/) about Australia neglecting this technology.
-
-The one tweak I would make to Naam's post is to mix some hockey sticks in with his asymptotes. Here's [IRENA](https://www.irena.org/publications/2019/May/Renewable-power-generation-costs-in-2018) data on how much solar energy $1 could get you over the last ten years.
+Ramez Naam has a fantastic [post](https://rameznaam.com/2020/05/14/solars-future-is-insanely-cheap-2020/) about this trend.  This Exciting Tech post is written less well than most because really, you should just go read his post and Casey Handmer's [rant](https://caseyhandmer.wordpress.com/2020/06/05/australian-energy-policy-no-vision-too-small/) about Australia neglecting this technology. The one tweak I would make to Naam's post is to mix some hockey sticks in with his asymptotes. Here's [IRENA](https://www.irena.org/publications/2019/May/Renewable-power-generation-costs-in-2018) data on how much solar energy $1 could get you over the last ten years.
 
 ![](/images/solar_hockey.svg)
 
-That looks a little scary if you own coal assets, doesn't it? The [Al Dafra](https://www.greentechmedia.com/articles/read/worlds-largest-solar-project-will-also-be-worlds-cheapest) solar installation in Abu Dhabi will sell you energy for $0.0135 per kWh, or 74 kWh per dollartwice the energy you can buy from a coal plant _if they've already paid for the entire plant_, and 7 times the energy you'd get from a coal plant paying for capital depreciation. 
+That looks a little scary if you own coal assets, doesn't it? The [Al Dafra](https://www.greentechmedia.com/articles/read/worlds-largest-solar-project-will-also-be-worlds-cheapest) solar installation in Abu Dhabi will sell you energy for $0.0135 per kWh, or 74 kWh per dollar - that's twice the energy you can buy from a coal plant _if they've already paid for the entire plant_, and 7 times the energy you'd get from a coal plant paying for capital depreciation. 
 
 We don't typically talk about energy per dollar like this because most people don't consume energy based on its price. You aren't eyeing electricity auctions to pounce on good deals like eBay. You run your AC, washing machine, lights, and laptops then the utility sends a bill each month. You might turn the thermostat up if you live in California and PG&E's chronic mismanagement is starting to sting your wallet, but your usage is mostly fixed wrt price.
 
 That "demand inelasticity" becomes a problem as more power generation transitions to solar and wind. The power grid is an eternal high-wire act: Every instant of every day power supply and demand must be perfectly matched. Too little power gets you brown-outs, too much starts frying expensive equipment.
 
-We achieve that balance using a portfolio of power assets with varying levels of 'dispatchability'. Solar and wind are 'non-dispatchable' because we have no control over their generation. We can turn them off completely (and make no money), or we can let them run and their output is set by the sun's brightness or the wind's speed. Coal plants are 'dispatchable' because we can turn their burners up and down to make more or less steam, spinning the turbines with more or less torque. When there's more demand you turn your coal plant up and make more money. However, 'dispatchable' is a spectrum not a binary: Coal plants and nukes warm up and cool down over hours. Natural gas plants and hydro power can swing on and off in minutes to seconds, and grid-scale battery storage is the king of dispatchability with effectively instantaneous response. The more responsive sources are generally only turned on when real-time or short-term energy prices are high, while the slower sources trade on longer term auction systems with lower, less volatile prices and run most of the time.
+We achieve that balance using a portfolio of power assets with varying levels of 'dispatchability,' which is the ability to vary the amount of power sent into the grid. Solar and wind are 'non-dispatchable' because we have no control over their generation. We can turn them off completely (and make no money), or we can let them run and their output is set by the sun's brightness or the wind's speed. Coal plants are 'dispatchable' because we can turn their burners up and down to make more or less steam, spinning the turbines with more or less torque. When there's more demand you turn your coal plant up and make more money. However, 'dispatchable' is a spectrum not a binary: Coal plants and nukes warm up and cool down over hours. Natural gas plants and hydro power can swing on and off in minutes to seconds, and grid-scale battery storage is the king of dispatchability with effectively instantaneous response. The more responsive sources are generally only turned on when real-time or short-term energy prices are high, while the slower sources trade on longer term auction systems with lower, less volatile prices and run most of the time.
 
 The percentage of time a source spends running is called its 'capacity factor' and it's a critical component in coal's impending doom: As solar and other non-dispatchable sources push daytime prices lower, and energy storage systems start eating into the valuable evening hours, the profitable coal hours will continue to shrink, the amortized cost of coal infrastructure will be spread over less time, and _the cost of coal in the remaining profitable hours will increase_.
 
@@ -38,3 +49,5 @@ That category - demand response using cheap hardware to produce commodities - is
 The other exciting possibility with overproduction is crappy storage. If power is effectively free all Summer but still has nontrivial cost in Winter, it makes sense to spend Summer energy for Winter energy at a 4:1 exchange rate. Energy storage with enough capacity to shift demand across seasons like that is an unsolved problem today, but I'm very optimistic someone will invent an obscenely cheap solution with say 25% round-trip efficiency. Direct-air-capture carbon into methane, or split water into hydrogen and oxygen, or pump insane quantities of air into pressurized caves deep undersea. The specific technology is an unknown quantity today, but I bet somebody will find a way to bank free energy.
 
 Remember earlier where I talked about _hypothetically_ building 4x as much solar as you need? The head of Australia's renewable energy program would like to do [7x](https://reneweconomy.com.au/australia-could-aim-for-700-per-cent-renewables-arena-boss-11594/).  We're headed for a future of incredible energy abundance, and dramatically cheaper, cleaner sources for almost every meaningful commodity.
+
+</ExcitingPage>
