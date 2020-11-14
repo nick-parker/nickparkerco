@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 // import styles from './card-grid.module.css'
 
 function CardGrid({cards}) {
     let [columns, setColumns] = useState(0)
     useEffect(() => {
-        setColumns(window.innerWidth / 400)
+        setColumns(Math.round(window.innerWidth / 400))
         window.addEventListener('resize', () => {
             setColumns(Math.round(window.innerWidth / 400))
         })

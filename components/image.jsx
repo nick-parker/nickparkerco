@@ -1,4 +1,4 @@
-export default function Im({src, cap, alt, width=700, click=false}) {
+export default function Im({src, cap, alt, width="90%", click=false}) {
     if(alt === undefined) {
         alt = cap
     }
