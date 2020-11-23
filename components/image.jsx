@@ -1,15 +1,15 @@
-export default function Im({src, cap, alt, width="90%", click=false}) {
+export default function Im({src, cap, alt, width="90%", click=false, link=""}) {
     if(alt === undefined) {
         alt = cap
     }
     src = "/images/" + src
     const fig = <figure className="mx-auto" style={{width}}>
-        <img src={src} alt={alt} className="px-2" width={width}/>
+        <img src={src} alt={alt} className="px-2"/>
         <figcaption className="text-base text-gray-800 p-2">{cap}</figcaption>
     </figure>
 
-    if(click) {
-        return <a href={src} target="_blank" rel="noreferrer noopener" style={{textDecoration: 'none'}}>
+    if(click || link) {
+        return <a href={link === "" ? src : link} target="_blank" rel="noreferrer noopener" style={{textDecoration: 'none'}}>
             {fig}
             </a>
     } else {

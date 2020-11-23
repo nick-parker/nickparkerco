@@ -29,11 +29,13 @@ if __name__ == "__main__":
     plt.plot(years, 1/irena_pv_95)
     plt.plot(years, 1 / coal)
     plt.plot(years, 1 / coal_opex)
+    plt.scatter([2020,], [1/0.0135,])
     plt.legend(["Solar weighted average kWh/$",
                 "Solar 95th kWh/$",
                 "Solar 5th percentile kWh/$",
                 "Coal (2020)",
-                "Coal operating costs (2020)"],
+                "Coal operating costs (2020)",
+                "Al Dafra solar farm (2020)"],
                loc="upper left", framealpha=1)
     plt.xlabel("Year")
     plt.ylabel("kWh of energy")
