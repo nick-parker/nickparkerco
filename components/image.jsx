@@ -5,7 +5,7 @@ export default function Im({src, cap, alt, width="90%", click=false, link=""}) {
     src = "/images/" + src
     const fig = <figure className="mx-auto" style={{width}}>
         <img src={src} alt={alt} className="px-2"/>
-        <figcaption className="text-base text-gray-800 p-2">{cap}</figcaption>
+        <figcaption className="text-xs md:text-sm text-gray-800 p-2">{cap}</figcaption>
     </figure>
 
     if(click || link) {
