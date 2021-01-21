@@ -1,0 +1,27 @@
+export const metadata = {
+    title: "Drop-In Flexure Nuts",
+    date: "2020-06-10",
+    lede: "FDM printed features to attach parts to T-slots",
+    thumb: "/images/flexure_nut.jpg"
+}
+
+import BasicPage from '../../components/basic-page'
+import Im, {ImSet} from '../../components/image'
+
+<BasicPage title={metadata.title}>
+<Im src="flexure_nut.jpg" cap="An example of my drop-in flexure nut design"/>
+
+I've been using features like this to secure FDM prints to T-slot extrusions for a couple years now. It's just two reusable [snap-fit features](https://en.wikipedia.org/wiki/Snap-fit) with a screw in between to lock them. They can be pushed into slots instead of sliding in the ends, and since they're integral to the parts you don't have to carefully line a nut up with each hole. Here's a profile sketch that should _just work_, although you may need to tweak the tolerances to get a secure lock.
+
+<ImSet>
+<Im src="flexure_nut_profile.jpg" cap="Flexure profile dimensions."/>
+<Im src="flexure_nut_cad.jpg" cap="Flexure nut CAD showing the screw hole."/>
+</ImSet>
+
+
+The screw is just self-tapped into an undersize (2.8 mm) hole. You have to be a little careful about screw lengths to get down between the beams without bottoming out, but regular T-slot nuts aren't much more forgiving in that regard. I haven't tried these for serious joints, but they're super handy for quick little fixes. They slide very smoothly with the screw pulled back, and lock pretty hard with it in.
+
+If this gets any interest I'll throw a test rig together and characterize their pull-out strength, but I'm throwing this post up for now because [a friend](https://twitter.com/joshu) asked for it. I don't think I came up with this myself, but hopefully this helps some folks!
+
+
+</BasicPage>

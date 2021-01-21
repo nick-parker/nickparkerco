@@ -36,6 +36,11 @@ const projects = [
         title: "Bread Non-planar FDM Slicer",
         href: "/project/bread",
         text: "Printing with curvy layers in an attempt to improve part strength"
+    },
+    {
+        title: "Drop-in Flexure T-Nuts",
+        href: "/project/flexure-nuts",
+        text: "FDM printed features to attach parts to T-slots"
     }
 ]
 
