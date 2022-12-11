@@ -22,11 +22,8 @@ export default function InfoDiet() {
             <li><a href="https://diff.substack.com/">The Diff</a></li>
             <li><a href="https://orbitalindex.com/">Orbital Index</a></li>
             <li><a href="http://www.caseyhandmer.com/">Casey Handmer</a></li>
-            <li><a href="https://fakepixels.com/">Fake Pixels</a></li>
             <li><a href="https://wheelhouse.substack.com/">Wheelhouse</a></li>
-            <li><a href="https://hipcityreg.substack.com/">Product Lost</a></li>
-            <li><a href="https://divinations.substack.com/">Divinations</a></li>
-            <li><a href="https://stratechery.com/">Stratechery</a></li>
+            <li><a href="https://noahpinion.substack.com/">Noahpinion</a></li>
         </ul>
         <h2 className="section-header">Papers and Reference Material</h2>
         <ul>
@@ -37,6 +34,7 @@ export default function InfoDiet() {
         <h3 className="section-header sm:text-xl md:text-2xl">Nonfiction</h3>
         <ul>
             <li><a href="https://www.amazon.com/Beginning-Infinity-Explanations-Transform-World/dp/0143121359">Beginning of Infinity</a> by David Deutsch</li>
+            <li><a href="https://www.amazon.com/Surfing-Uncertainty-Prediction-Action-Embodied/dp/0190217014">Surfing Uncertainty</a> by Andy Clark</li>
             <li><a href="https://www.amazon.com/Dream-Machine-M-Mitchell-Waldrop/dp/1732265119">The Dream Machine</a> by M. Mitchell Waldrop</li>
             <li><a href="https://www.amazon.com/Infinite-Resource-Power-Finite-Planet/dp/161168255X">The Infinite Resource</a> by <a href="https://twitter.com/ramez">Ramez Naam</a></li>
             <li><a href="https://www.amazon.com/Understanding-Michael-Porter-Essential-Competition-ebook/dp/B005OVTMAY">Understanding Michael Porter</a> by Joan Magretta</li>
@@ -82,6 +80,7 @@ export default function InfoDiet() {
             <li><a href="https://www.amazon.com/Dune-Frank-Herbert-ebook/dp/B00B7NPRY8">Dune series</a> by Frank Herbert</li>
             <li><a href="https://www.amazon.com/Revelation-Space-Inhibitor-Trilogy-Book-ebook/dp/B0819W19WD">Revelation Space</a> by Alastair Reynolds</li>
             <li><a href="https://www.amazon.com/Unit-Ninni-Holmqvist-ebook/dp/B002CFQ6UO">The Unit</a> by Ninni Holmqvist</li>
+            <li><a href='https://www.amazon.com/Fire-Upon-Deep-Zones-Thought-ebook/dp/B000FBJAGO/'>A Fire Upon the Deep</a> by Vernor Vinge</li>
         </ul>
     </div>
     </BasicPage>

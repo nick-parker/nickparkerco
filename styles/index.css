@@ -12,7 +12,7 @@
 }
 
 .subtitle {
-  @apply title text-3xl pb-1;
+  @apply text-center text-3xl pb-1;
 }
 
 .profile {
