@@ -18,7 +18,7 @@ export default function p() {
             downhill movements, both of which ruin the surface finish.
             <br/><br/>
             A recent SigGraph paper (<a href="https://cims.nyu.edu/gcl/papers/2019-CurviSlicer.pdf">pdf</a>) called CurviSlicer is in my opinion the optimal
-            implementation of curved layers on 3-axis FDM machines. They fit an R^3 -> R^3 deformation function to each model to minimize the "slantedness" of
+            implementation of curved layers on 3-axis FDM machines. They fit an R^3 {'->'} R^3 deformation function to each model to minimize the "slantedness" of
             its surfaces - IE they try to make all surfaces either flat or vertical. They then slice flat layers in the deformed space and apply the inverse
             function to those layers to produce smoothly curved layers which minimize the "stair step" aliasing pattern on angled surfaces. They prevent nozzle
             collisions and 'plowing' due to excessive angles by setting appropriate limitations on the deformation functions. It's a beautiful implementation, and
