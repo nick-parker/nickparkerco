@@ -11,12 +11,12 @@ export default function Nav() {
     <nav>
       <div className="flex text-grey-500 justify-between items-center p-8 md:text-xl lg:text-2xl">
         <Link href="/">
-          <a>Home</a>
+          Home
         </Link>
         <div className="flex justify-between items-center space-x-4">
           {links.map(({ href, label }) => (
-            <Link href={href} key={href}>
-              <a className="md:px-8">{label}</a>
+            <Link href={href} key={href} className="md:px-8">
+              {label}
             </Link>
           ))}
         </div>
