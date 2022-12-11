@@ -38,13 +38,14 @@ export async function getStaticProps() {
           .join('.')
         const value = values[index]
         return {
-			href: `/exciting/${slug}`,
+			      href: `/exciting/${slug}`,
             title: value.metadata.title,
             text: value.metadata.lede,
-            image: value.metadata.thumb
+            image: value.metadata.thumb,
+            hidden: value.metadata.hidden
         }
       })
-      return data
+      return data.filter(pst => !pst.hidden)
     })(require.context('./', true, /\.mdx$/))
   
     return {
