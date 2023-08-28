@@ -4,6 +4,10 @@ import CardGrid from '../components/card-grid'
 
 const projects = [
     {
+        title: "Servo Pistons",
+        href: "/project/servo-pistons"
+    },
+    {
         title: "Antique CNC Mill Retrofit",
         href: "/project/cnc-mill",
         text: "Converting a Shizuoka ST-N knee mill from the late 1970s to LinuxCNC and residential power"
@@ -13,10 +17,6 @@ const projects = [
         href: "/project/praxis-printer",
         text: "The hardware behind Praxis Mfg."
     },
-    // {
-    //     title: "Audio Dinner Party",
-    //     href: "/project/audio-dinner-party"
-    // },
     {
         title: "Dinner Parties",
         href: "/project/dinner-parties",

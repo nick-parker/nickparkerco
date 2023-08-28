@@ -9,7 +9,7 @@ export default function BasicPage({title, children}) {
                 <title>{title}</title>
             </Head>
             <h1 className="title">{title}</h1>
-            <div className="text-left sm:text-base md:text-lg w-5/6 md:w-3/4 mx-auto pb-10">
+            <div className="markdown">
                 {children}
             </div>
         </>

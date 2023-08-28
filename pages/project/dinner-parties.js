@@ -3,14 +3,13 @@ import BasicPage from '../../components/basic-page'
 export default function DinnerParties() {
     return (
         <BasicPage title="Dinner Parties">
-            In normal times, I host dinner parties every couple months with my friend <a href="https://twitter.com/coffeechatsam">Sam Kramer</a> in NYC. 
-            They're usually 20-40 people and we try to invite disparate friend groups, friends of friends, and interesting strangers to encourage new connections.
-            I cook the main course and Sam's girlfriend <a href="https://www.instagram.com/onehungrybaker/">Ariela</a> (a professional pastry chef!) usually makes dessert.
+            Before the pandemic, I hosted dinner parties every couple months with my friend <a href="https://twitter.com/coffeechatsam">Sam Kramer</a> in NYC. 
+            They were usually 20-40 people and we tried to invite disparate friend groups, friends of friends, and interesting strangers to encourage new connections.
+            Specifically, I tried to game the invite list so nobody knew more than a quarter of the attendees, and I think the vibes were greatly improved by my scheming.
+            I cooked the main course and Sam's girlfriend (now wife!) <a href="https://www.instagram.com/onehungrybaker/">Ariela</a> (a CIA trained pastry chef!) usually made dessert.
             <br/><br/>
-            If that sounds fun and you're NYC based DM me on <a href="https://twitter.com/NickParkerPrint">Twitter</a> or <a href="mailto:hey@nickparker.co">email</a> me :)
-            <br/><br/>
-            I started this tradition at Cornell <span className="italic">mostly</span> as an excuse to show off my cooking, and it's grown into one of the most
-            wonderful parts of my life
+            I started this tradition at Cornell <span className="italic">mostly</span> as an excuse to show off my cooking, and it grew into one of the most
+            wonderful parts of my life. If you're based in Montreal, NYC, or SF and interested in reviving this vibe with me please<a href="https://twitter.com/NickParkerPrint">drop me a line</a> :)
         </BasicPage>
     )
 }

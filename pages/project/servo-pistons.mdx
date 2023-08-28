@@ -1,0 +1,76 @@
+export const metadata = {
+    title: "Servo-Pistons",
+    date: "2023-08-27",
+    lede: "Cheap, accurate, backdrivable, force- and position-controllable hydraulics",
+    thumb: "/images/flexure_nut.jpg"
+}
+
+import BasicPage from '../../components/basic-page'
+import Im, {ImSet} from '../../components/image'
+
+<BasicPage title={metadata.title}>
+In the first year of the pandemic I got a little bit obsessed with [diaphragm pistons](/exciting/diaphragm-pistons). I encourage you to go read the Exciting Tech page first if you haven't heard my spiel about these things before, but the TL;DR is "one-way-acting pneumatic or hydraulic pistons with negligible friction/stiction, and ultra-loose tolerances which enables cheap construction." 
+They're great little devices, the two main downsides are that the seals can handle maybe 1/10th of conventional hydraulic pressures which means you're giving up a lot of max force in exchange for these advantages, and the seals themselves are fiddly to produce in long aspect ratios, but as I'll explain below there are viable manufacturing methods to solve that.
+
+While stuck at home with my parents and my dad's luxuriously equipped workshop for wood and composites, I think I advanced the state of the art in some useful ways. I'm not pursuing this concept professionally because novel robotic actuator startups are a brutally hard business, but I think this could be a fantastic phd project for somebody, and might be an awesome unlock for open source robotic arms. This post is a bit messy because I did this work 2.5 years before writing it, but here we go!
+
+# Let's Use Carbon Fiber
+
+<ImSet>
+  <Im src="servopistons/carbon-squid.jpg" cap="Finished diaphragm before rolling onto the inner piston"/>
+  <Im src="servopistons/squid_layup.jpg" cap="Layup of the carbon fiber onto the positive half of the diaphragm mold."/>
+</ImSet>
+
+The original [paper](https://www.researchgate.net/publication/330587729_Long-Stroke_Rolling_Diaphragm_Actuators_For_Haptic_Display_of_Forces_in_Teleoperation) I set out to replicate used woven nylon cloth as the reinforcing layer which gives the diaphragm seal its strength, then lasercut tiny chevron patterns in the cloth to allow it to stretch in one direction but not the other. This is necessary because the diaphragm needs to stretch diametrically to expand from the inner bore diamter to the outer bore diameter, but it needs to be stiff axially to increase the allowable pressure of the piston before the seal bursts.
+Instead of doing all that work with a lasercutter, I decided to use fabric which only had fibers in one direction right off the shelf. Specifically, [unidirectional carbon fiber](https://www.fibreglast.com/product/Unidirectional_Carbon_Fabric_40_oz_2585) meant for composite layup. This turned out to be far more work because the original paper used nylon pre-coated with silicone and carbon fiber really doesn't like adhering to elastomers without some dark magic chemistry I don't have access to, but I managed to make some usable enough diaphragms from ACP composites carbon fiber and Smooth-on two part urethane rubber, so live and learn right? It was a lucky choice despite how inaccessible "compatibilizer" chemistry is, because carbon fiber happens to be conductive.
+
+# The seal is the sensor
+My most original contribution in this project is using conductive reinforcing fibers to create a capacitor between the diaphragm seal and the housing of the piston which has linearly varying capacitance with respect to position. My _extremely_ fly by night prototype (see video) could already sense position with about 0.5 mm accuracy, and **I think there's a clear path to at least 5 micron resolution**. I also suspect the capacitive reading is weakly dependent on force because the 'donut' portion of the seal can stretch and get very slightly more area close to the outer bore, so an antagonistic pair of pistons would likely be able to measure both position and force by diffing the two position readings.
+
+<div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "2rem" }}>
+
+  <iframe width="830" height="1475" src="https://www.youtube.com/embed/-jjy8OFF-2Y" title="Servopiston sensor demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+
+# How exactly does this work?
+Before continuing, stare at the diagram below for 15 seconds and imagine moving the inner bore (the grey box centered on the dashed midline) left and right. You should visualize the red and blue diaphragm rolling off the inner bore and onto the green outer bore as the inner bore moves right, and vice versa as it moves left. If you can't imagine it, think about taking off a really tight pant-leg or shirt sleeve and how it turns itself inside out, then try again. Got it? Good. If somebody wants to animate this for me please reach out!
+
+<Im src="servopistons/diaphragm piston sketch.png" />
+
+The diaphragm seal has a fixed length along its axis, and as the piston moves that length gets shifted from the inner bore to the outer one and back. When pushed all the way in ~90% of the length is on the inner bore and the remaining 10% is in the "donut", and when extended all the way out ~90% is on the outer bore. That means the length of diaphragm pressed against the outer bore is linearly proportional to the piston position.
+
+The capacitance between two conductive surfaces is proportional to area divided by gap distance. In the "high capacitance region" highlighted in yellow, the diaphragm is pressed against the outer bore by the pressure so the gap distance is ~0. To keep exposed fibers on the surface of my poorly cast rubber diaphragm from actually touching the aluminum, I put a layer of 0.03 mm thick kapton tape (not pictured, sorry) over the entire inner surface of my aluminum tube.
+The clearance between the two bores was something like 5 mm, so a given patch of area on the diaphragm contributes ~150x more capacitance when it's pressed against the outer bore than when it has rolled onto the inner one.
+The capacitance is also decently large: for a 20mm bore diameter it's about 60 pF per mm with kapton as the dielectric, and bigger pistons give bigger capacitance signals of course.
+
+I mounted the awful piston from the video on the X axis of one of my 3D printers and measured the frequency of my awful RC oscillator for a range of piston positions first extending the piston then compressing it again to check for hysteresis. The piston was pressurized very roughly to 8 psi by a $30 aquarium pump with no reservoir, so it had an awful amount of noise from the pressure alone. Despite all that I got a very clear position reading and no measurable hysteresis. Apologies again for the poor presentation here, I'm pulling from images and video I quickly captured to share with friends - I intended to do prettier tests and make a video about this eventually, but I got busy.
+
+<Im src="servopistons/diaphragm piston test setup.jpg" cap="Test setup on my 5-axis printer's X axis."/>
+<Im src="servopistons/diaphragm piston sense.jpg" cap="Change in frequency from initial value vs position for out-and-back test. kHz vs mm."/>
+
+This is about as far as I got unfortunately, so I'll take a few paragraphs here to go through potential and pitfalls with this idea before wrapping things up. No more fun test data beyond this point.
+
+# Why am I so confident the resolution can be improved?
+Capacitance measurement is _really_ mature technology. For example, the [FDC2212](https://www.ti.com/lit/ds/symlink/fdc2114.pdf?ts=1693195193247&ref_url=https%253A%252F%252Fwww.google.com%252F) is a $5 chip which will happily give you 10-12 useful bits at kHz sample rates, then dial into 20+ bits of resolution if you give it a fraction of a second to settle. The capacitance signal from these pistons is large, and with good mechanical engineering it can be made clean. The grounded outer bore acts as a faraday cage and shields the sense element (the diaphragm) from stray capacitance, and if you want even more signal for some reason you can 20x it easily by coating the outer bore in a dielectric ceramic like those used in cheap ceramic capacitors.
+
+# What should we use servo pistons for?
+I think the best answer is probably robotic arms and humanoid robots. The pistons are single acting because you can't invert the pressure on the diaphragm without messing up the rolling action, so they badly want to be used in antagonistic pairs. There are mildly rube goldberg ways to package a pair into a single double-acting piston, but the piston length to actuation length ratio is pretty awful in every design I can think of. The Disney Research [teleoperation demo](https://www.youtube.com/watch?v=HY4bfnHMdtk&feature=emb_title) using sensor-less diaphragm pistons shows how simple it is to actuate rotary joints with these, and if not for their usual stiction/accuracy issues hydraulics would be an obvious choice for robotic arms because they get your power plant off the moving mass budget without doing any weird transmission tricks through the more proximate joints.
+
+## Their packaging is extremely flexible
+Unlike conventional pistons with tight clearances between their bores, servo pistons (and all diaphragm pistons) have several millimeter gaps between their bores to give the diaphragm room to turn around without bending sharply enough to cause fatigue issues. Rectangular or arbitrarily shaped bores, curved pistons, tapered pistons, and more are all viable options for the packaging-constrained roboticist. These more 'designer' variants will be annoying to calibrate the sensor output on, but the core ideas all still work.
+
+## They're tunably stiff ergo great for cobots
+Servo pistons are teachable systems. If you take an antagonistic pair of servo pistons and connect their pressurized sides with a needle valve you get a tunably stiff system. With the valve wide open the system is easy to move because pressure in the compressed piston quickly shifts to the decompressed piston, but as you close the valve the pressure difference for the same movement speed increases, until in the closed state you get the full stiffness of your working fluid, which can be incredibly rigid if you're doing hydraulics not pneumatics. Since the pistons are also sensors, you can record trajectories in this reduced stiffness mode then play them back with full force. Or if your pump system has enough flow to keep up, you can open the needle valve during controlled movements to 'force limit' the robot so it can't crush people or objects by accident.
+
+## They're lockable
+I originally got interested in fluid robotics because I wanted to make a body-powered prosthetic arm that pulled hydraulic power from a shoulder harness and used it to actuate multiple degrees of freedom in a hand with a small electronic valve complex to switch which actuators were connected to the pressure depending on the intended grip function. One really nice capability of all hydraulics is that they can hold position with very little power: If you just close the valve to a piston, the incompressibility of your fluid makes it rock solid. I mentioned in the intro that I think these things will be able to measure force by comparing the capacitance readout from antagonistic pairs; If I'm right about that, robotics applications could pull an excellent trick where they lock the robot's "stabilizer muscles" and spend ~no power on them, but monitor the force balance on the joints and unlock them to apply corrections only as-needed.
+
+# How do we make them?
+The easiest prototyping method I found was to screw a cap onto the positive mold which clamped the edge of the uniaxial fabric to the tip of the mold, fill the negative mold with urethane, then push the fiber-wrapped positive in and throw the assembled mold in a vacuum pot to remove bubbles. After curing I used a heat gun to melt my negative mold (made of PLA) off the diaphragm/positive mold (ABS), then disassembled the flanged part of the inner mold which was held on by screws and used the rod shaped part of it as my new piston's inner bore. Since I never quite solved the carbon fiber \<> elastomer interface chemistry problem, this approach positively retained the fiber to the inner piston and prevented an earlier issue I had where the fiber would work its way free of the elastomer and start peeling off.
+
+I think the _right_ way to make these is to lay the carbon fiber up on a mandrel with appropriate compatibilizers already impregnated into it and then hot-dip the mandrels into heat-set rubber similar to a [condom manufacturing line](https://youtu.be/UTMYW8AClOM?si=7AI9vXp__3QIDHL-&t=58). Since this project I've met a lot of brilliant polymer chemists through my role at AON3D, and a few of them have mentioned nitrile chemistry would likely be more willing to bond to carbon or other conductive fibers than urethane. I originally started this project with silicone, which was a _horrible_ choice because that stuff bonds to _nothing_.
+
+
+
+</BasicPage>

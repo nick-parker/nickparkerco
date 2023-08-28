@@ -12,7 +12,7 @@ export default function IndexPage() {
         <div className="lg:w-1/3 px-18 flex flex-col">
           <img className="profile mx-auto py-10 w-1/2 lg:w-3/4" src="images/profile.jpg"/>
           <h1 className="title">Nick Parker </h1>
-          <h3 className="subtitle">Lead System Architect at <a href="https://www.aon3d.com/">AON3D</a> </h3>
+          <h3 className="subtitle">Director of Product at <a href="https://www.aon3d.com/">AON3D</a> </h3>
           <h3 className="subtitle">Generalist Engineer</h3>
         </div>
         <div className="lg:w-2/3 text-left text-xl lg:text-2xl pl-8 pr-20">
