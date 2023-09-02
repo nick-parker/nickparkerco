@@ -18,7 +18,7 @@ export default function Im({src, cap, alt, width="90%", click=false, link=""}) {
 }
 
 export function ImSet(props) {
-    return <div className="flex justify-center items-center flex-col md:flex-row">
+    return <div className="flex justify-center flex-col md:flex-row">
         {props.children}
     </div>
 }

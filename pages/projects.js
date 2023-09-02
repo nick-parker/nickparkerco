@@ -5,7 +5,8 @@ import CardGrid from '../components/card-grid'
 const projects = [
     {
         title: "Servo Pistons",
-        href: "/project/servo-pistons"
+        href: "/project/servo-pistons",
+        text: "Loosely toleranced DIY-friendly pistons with low hysterisis, position/force feedback, and many other desirable properties"
     },
     {
         title: "Antique CNC Mill Retrofit",

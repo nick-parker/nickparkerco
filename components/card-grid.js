@@ -23,7 +23,7 @@ function CardGrid({cards}) {
 
 function Card({title, href, image, text}) {
     return (
-        <Link href={href} key={href}>
+        <Link href={href} key={href} style={{ textDecoration: 'none' }}>
             <div className="card" key={href}>
                 <h1 className="section-header">{title}</h1>
                 {text ? <div>{text}</div> : <img src={image}/>}
