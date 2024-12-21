@@ -2,21 +2,21 @@ import Head from 'next/head'
 import Nav from '../../components/nav'
 import CardGrid from '../../components/card-grid'
 
-export default function Exciting({exciting_techs}) {
+export default function Understandings({understandings}) {
     return (
     <>
         <Head>
-          <title>Exciting Tech</title>
+          <title>Understandings</title>
         </Head>
         <Nav/>
-        <h1 className="title py-4">Exciting Tech</h1>
+        <h1 className="title py-4">Understandings</h1>
         <div className="text-left sm:text-xl md:text-2xl px-8 pb-8">
-            I love learning about new technology and talking about it with friends. This is a compilation of the new technologies
+            I love learning about new ideas and talking about them with friends. This is a compilation of the topics
             I'm most excited about and <i> my current understanding of them.</i> My goal is to be publicly wrong on the internet
-            so people correct me, I learn more about these technologies, and the tech gets more attention. I welcome corrections
+            so people correct me, I learn more about these topics, and they gets more attention. I welcome corrections
             to any of these pages on <a href="https://github.com/nick-parker/nickparkerco/issues">Github</a>.
         </div>
-        <CardGrid cards={exciting_techs}/>
+        <CardGrid cards={understandings}/>
     </>
     )
 }
@@ -54,7 +54,7 @@ export async function getStaticProps() {
 
     return {
       props: {
-        exciting_techs: posts,
+        understandings: posts,
         title: siteConfig.default.title,
         description: siteConfig.default.description,
       },
