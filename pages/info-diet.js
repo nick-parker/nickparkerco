@@ -46,6 +46,7 @@ export default function InfoDiet() {
         <ul>
           <BookListItem href="https://www.amazon.com/Beginning-Infinity-Explanations-Transform-World/dp/0143121359" title="Beginning of Infinity" author="David Deutsch" />
           <BookListItem href="https://www.amazon.com/Surfing-Uncertainty-Prediction-Action-Embodied/dp/0190217014" title="Surfing Uncertainty" author="Andy Clark" />
+          <BookListItem href="https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind" title="Active Inference" author="Thomas Parr, Giovanni Pezzulo, and Karl J. Friston" />
           <BookListItem href="https://www.amazon.com/Dream-Machine-M-Mitchell-Waldrop/dp/1732265119" title="The Dream Machine" author="M. Mitchell Waldrop" />
           <BookListItem href="https://www.amazon.com/Infinite-Resource-Power-Finite-Planet/dp/161168255X" title="The Infinite Resource" author="Ramez Naam" />
           <BookListItem href="https://www.amazon.com/Understanding-Michael-Porter-Essential-Competition-ebook/dp/B005OVTMAY" title="Understanding Michael Porter" author="Joan Magretta" />
@@ -97,6 +98,8 @@ export default function InfoDiet() {
           <BookListItem href="https://www.amazon.com/Diamond-Age-Illustrated-Primer-Spectra-ebook/dp/B000FBJCKI" title="The Diamond Age" author="Neal Stephenson" />
           <BookListItem href="https://www.amazon.com/Fine-Structure-Sam-Hughes-ebook/dp/B07DW2PMS6" title="Fine Structure" author="qntm" />
           <BookListItem href="https://www.amazon.com/Ra-Sam-Hughes-ebook/dp/B07L9KLYPK" title="Ra" author="qntm" />
+          <BookListItem href="https://www.amazon.com/Theft-Fire-Orbital-Space-1-ebook/dp/B0CJHQ4LZN" title="Theft of Fire" author="Devon Eriksen" />
+          <BookListItem href="https://www.amazon.com/Children-Time-Adrian-Tchaikovsky/dp/0316452505" title="Children of Time trilogy" author="Adrian Tchaikovsky" />
 
 
 
