@@ -1,6 +1,13 @@
 @tailwind base;
 @tailwind components;
 
+@layer components {
+  .container {
+    /* Override only for larger screens */
+    @apply max-w-prose mx-auto; 
+  }
+}
+
 .title {
   @apply text-5xl text-center pb-4;
   color: #333;
@@ -27,11 +34,22 @@ p {
 
 ol, ul {
   list-style: decimal;
-  list-style-position: inside;
+  list-style-position: outside;
+  padding-left: 1em;
 }
 
 li>p {
-  text-indent: 0em;
+  margin-left: 0;
+  text-indent: 0;
+}
+
+ol li, ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.markdown {
+  @apply max-w-prose
 }
 
 .markdown h1 {
@@ -69,6 +87,10 @@ li>p {
 
 .card:hover {
     border: 2px solid #bcbcbc;
+}
+
+.footnotes {
+  @apply mx-auto max-w-prose px-4;
 }
 
 @tailwind utilities;

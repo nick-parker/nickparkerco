@@ -8,14 +8,14 @@ const links = [
 
 export default function Nav() {
   return (
-    <nav>
-      <div className="flex text-grey-500 justify-between items-center p-8 md:text-xl lg:text-2xl">
+    <nav className="container mx-auto px-4">
+      <div className="flex justify-between items-center p-4 md:text-xl lg:text-2xl">
         <Link href="/">
           Home
         </Link>
-        <div className="flex justify-between items-center space-x-4">
+        <div className="flex space-x-4">
           {links.map(({ href, label }) => (
-            <Link href={href} key={href} className="md:px-8">
+            <Link href={href} key={href} className="px-2">
               {label}
             </Link>
           ))}
