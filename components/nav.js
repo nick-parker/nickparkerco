@@ -8,7 +8,7 @@ const links = [
 
 export default function Nav() {
   return (
-    <nav className="container mx-auto px-4">
+    <nav className="px-4">
       <div className="flex justify-between items-center p-4 md:text-xl lg:text-2xl">
         <Link href="/">
           Home

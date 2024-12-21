@@ -28,7 +28,7 @@ export async function getStaticProps() {
     const posts = (context => {
       const keys = context.keys()
       const values = keys.map(context)
-  
+
       const data = keys.map((key, index) => {
         // Create slug from filename
         const slug = key
@@ -38,16 +38,20 @@ export async function getStaticProps() {
           .join('.')
         const value = values[index]
         return {
-			      href: `/exciting/${slug}`,
-            title: value.metadata.title,
-            text: value.metadata.lede,
-            image: value.metadata.thumb,
-            hidden: value.metadata.hidden
+          href: `/exciting/${slug}`,
+          title: value.metadata.title,
+          text: value.metadata.lede,
+          image: value.metadata.thumb,
+          hidden: value.metadata.hidden,
+          date: value.metadata.date
         }
       })
-      return data.filter(pst => !pst.hidden)
+
+      return data
+        .filter(pst => !pst.hidden)
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
     })(require.context('./', true, /\.mdx$/))
-  
+
     return {
       props: {
         exciting_techs: posts,
