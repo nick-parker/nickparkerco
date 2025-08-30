@@ -34,7 +34,7 @@ export default function InfoDiet() {
           <BookListItem href="http://www.caseyhandmer.com/" title="Casey Handmer" />
           <BookListItem href="https://wheelhouse.substack.com/" title="Wheelhouse" />
           <BookListItem href="https://noahpinion.substack.com/" title="Noahpinion" />
-       </ul>
+        </ul>
         <h2 className="section-header">Papers and Reference Material</h2>
         <ul>
           <BookListItem href="https://web.mit.edu/2.75/fundamentals/FUNdaMENTALS.html" title="Fundamentals of Design" author="Prof. Alexander Slocum" />
@@ -64,7 +64,8 @@ export default function InfoDiet() {
           <BookListItem href="https://www.amazon.com/Surely-Youre-Joking-Mr-Feynman-ebook/dp/B003V1WXKU" title="Surely You're Joking, Mr Feynman!" author="Richard Feynman" />
           <BookListItem href="https://www.amazon.com/Making-Atomic-Bomb-Richard-Rhodes-ebook/dp/B008TRU7SQ" title="The Making of the Atomic Bomb" author="Richard Rhodes" />
           <BookListItem href="https://www.amazon.com/Boom-Bubbles-Stagnation-Byrne-Hobart/dp/1953953476" title="Boom: Bubbles and the End of Stagnation" author="Byrne Hobart and Tobias Hubert" />
-
+          <BookListItem href="https://www.amazon.com/Becoming-Trader-Joe-Business-Still-ebook/dp/B003Y3TBM2" title="Becoming Trader Joe" author="Joe Coulombe and Patty Civalleri" />
+          <BookListItem href="https://www.amazon.com/Apple-China-Capture-Greatest-Company-ebook/dp/B0DJK2D88B/" title="Apple in China" author="Patrick McGee" />
         </ul>
         <h3 className="section-header sm:text-xl md:text-2xl">Fiction</h3>
         <ul>
@@ -100,9 +101,13 @@ export default function InfoDiet() {
           <BookListItem href="https://www.amazon.com/Ra-Sam-Hughes-ebook/dp/B07L9KLYPK" title="Ra" author="qntm" />
           <BookListItem href="https://www.amazon.com/Theft-Fire-Orbital-Space-1-ebook/dp/B0CJHQ4LZN" title="Theft of Fire" author="Devon Eriksen" />
           <BookListItem href="https://www.amazon.com/Children-Time-Adrian-Tchaikovsky/dp/0316452505" title="Children of Time trilogy" author="Adrian Tchaikovsky" />
-
-
-
+          <BookListItem href="https://www.amazon.com/Fine-Structure-Sam-Hughes-ebook/dp/B07DW2PMS6" title="Fine Structure" author="qntm" />
+          <BookListItem href="https://www.amazon.com/Ra-Sam-Hughes-ebook/dp/B07L9KLYPK" title="Ra" author="qntm" />
+          <BookListItem href="https://www.amazon.com/All-Systems-Red-Kindle-Single-ebook/dp/B01MYZ8X5C" title="Murderbot series" author="Martha Wells" />
+          <BookListItem href="https://www.amazon.com/Theft-Fire-Orbital-Space-1-ebook/dp/B0CJHQ4LZN" title="Theft of Fire" author="Devon Eriksen" />
+          <BookListItem href="https://www.amazon.com/Mote-Gods-Eye-Book-ebook/dp/B004YDL2CY" title="The Mote in God's Eye trilogy" author="Larry Niven and Jerry Pournelle" />
+          <BookListItem href="https://www.amazon.com/Hyperion-Cantos-Book-1-ebook/dp/B004G60EHS" title="Hyperion Cantos" author="Dan Simmons" />
+          <BookListItem href="https://www.amazon.com/Blindsight-Firefall-Book-Peter-Watts-ebook/dp/B003K15EKM" title="Blindsight" author="Peter Watts" />
         </ul>
       </div>
     </BasicPage>
