@@ -22,18 +22,17 @@ export default function InfoDiet() {
       <div className="text-left sm:text-xl md:text-2xl px-8">
         This is my best-attempt at cataloguing where the info in my head comes from. Most of it's imported you know.
         <h2 className="section-header">Chats</h2>
-        I keep <a href="https://theprepared.org/">The Prepared</a> subscriber Slack open most of the time, and my DMs are open on <a href="https://twitter.com/NickParkerPrint">Twitter</a>
+        My DMs are open on <a href="https://twitter.com/NickParkerPrint">Twitter</a> and I'm on a variety of discords/slacks/signals centered on manufacturing, nanofab, space, etc.
         <h2 className="section-header">Aggregators</h2>
         I read Twitter, HackerNews, and Reddit in that order, and I have a growing list of Google Alerts for topics that interest me. Google Alerts
         are under-rated.
         <h2 className="section-header">Blogs and Newsletters</h2>
         <ul>
-          <BookListItem href="https://theprepared.org/" title="The Prepared" />
           <BookListItem href="https://diff.substack.com/" title="The Diff" />
           <BookListItem href="https://orbitalindex.com/" title="Orbital Index" />
           <BookListItem href="http://www.caseyhandmer.com/" title="Casey Handmer" />
           <BookListItem href="https://wheelhouse.substack.com/" title="Wheelhouse" />
-          <BookListItem href="https://noahpinion.substack.com/" title="Noahpinion" />
+          <BookListItem href="https://theprepared.org/" title="The Prepared" />
         </ul>
         <h2 className="section-header">Papers and Reference Material</h2>
         <ul>

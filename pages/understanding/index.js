@@ -12,9 +12,10 @@ export default function Understandings({understandings}) {
         <h1 className="title py-4">Understandings</h1>
         <div className="text-left sm:text-xl md:text-2xl px-8 pb-8">
             I love learning about new ideas and talking about them with friends. This is a compilation of the topics
-            I'm most excited about and <i> my current understanding of them.</i> My goal is to be publicly wrong on the internet
-            so people correct me, I learn more about these topics, and they gets more attention. I welcome corrections
-            to any of these pages on <a href="https://github.com/nick-parker/nickparkerco/issues">Github</a>.
+            I'm most curious about and <i> my current understanding of them.</i> My goal is to be publicly wrong on the internet
+            so people correct me, I learn more about these topics, and they get more attention. I write authoritatively without
+            hedging because it's more fun. Please don't mistake that for actual authority. I welcome feedback
+            on any of these pages on <a href="https://github.com/nick-parker/nickparkerco/issues">Github</a>.
         </div>
         <CardGrid cards={understandings}/>
     </>
