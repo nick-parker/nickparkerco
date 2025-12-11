@@ -1,0 +1,105 @@
+export const metadata = {
+    title: "Inflatable Structures",
+    date: "2020-06-10",
+    lede: "We should build Mars habs on Earth, maybe",
+    thumb: "",
+    hidden: false
+}
+
+
+import Im, {ImSet} from '../../components/image'
+import ExcitingPage from '../../components/exciting-page'
+
+<ExcitingPage {...metadata}>
+Alright this one's seat of my pants but I need to get this link up because I talk about it way too much. Consider this half tech blog post, half mood board.
+
+I think in the near future we're going to (or should) build a ton of mostly-tensile structures which use air pressure to maintain their shape. We already do this with stadium roofs, agricultural greenhouses, and childrens bounce houses, but I'd like to see them used for general purpose residential, commercial, and light industrial real estate.
+
+This obsession started with Casey Handmer's post [Domes are Over-rated](https://caseyhandmer.wordpress.com/2019/11/28/domes-are-very-over-rated/). He argues the sci-fi mainstay "big clear domes with a space city in them" is a bad idea, and puts forward an alternate structure design:
+
+<Im src="casey-mattress.png" cap="Casey Handmer's depiction of a pressure lofted mattress roof on Mars"/>
+
+This is effectively an air mattress you would live in. The roof is held up by the pressurized atmosphere, and steel cables spaced throughout the livable area anchor the roof to the ground. The key idea is that the number of anchor cables can scale linearly with the area of your roof, whereas the ratio of a circular dome's area to its perimeter wall grows with dome size. That means your cable-anchored mattress can be as big as you like, but domes larger than about 150 feet can't be built without impossibly strong walls and foundations.
+
+Casey's pitch for Mars is super compelling: A relatively modest supply of ETFE plastic and steel (both possible to make on Mars) buys you square kilometers of indoor space on a hostile planet, with arbitrarily high ceilings provided you can afford a marginal increase in steel and air requirements. Spindly skyscrapers could use the roof to support themselves in tension, so our wildest sci-fi dreams of breathtakingly tall arcologies can come true.
+
+As someone who has lived in very cold places, recently spent a fire season in Northern California, and who occasionally searches for residential-scale carbon capture technology because the [cognitive effects of rising CO2 levels](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4892924/) scare him, I would like enormous volumes of climate controlled space at a modest price on Earth.
+
+# Naturhus Movement
+
+The Swedish eco-architect [Bengt Warne](https://web.archive.org/web/20200222200559/http://bengtwarne.malwa.nu/natureH.html) built the first 'nature house' in 1974. Unfortunately most of his work is difficult to find on the English internet, but this [thesis](https://webthesis.biblio.polito.it/6763/1/tesi.pdf) (pdf) provides tons of interesting details. The Naturhus concept covers everything from composting and grey-water use to ventilation systems which store heat in the ground, but the most immediately visible point is that Warne put an ordinary house inside a greenhouse:
+
+<Im src="bengte_warne_nature_house.jpg"/>
+
+Bengt Warne's first Nature House in Saltsjöbaden
+
+Warne's movement has a small community of dedicated followers today, mostly in Sweden. Anders Solvarm of [Naturhusvillan](https://www.naturhusvillan.com/) is the most readily googled:
+
+<ImSet>
+<Im src="nature_house_night.jpg" cap="Night view of Anders Solvarm's nature house. Photo credit @chaysedacoda on Instagram, via Metro.style"/>
+<Im src="nature_house_roof.jpg" cap="Interior view of Anders Solvarm's nature house, on the roof deck. Photo credit @im_hjerte on Instagram, via Metro.style"/>
+</ImSet>
+The big benefits that jump out to me are:
+
+1) A comfortable temperate climate for you and your garden all year, no matter where you choose to live in the world
+
+2) The freedom to build your interior living structure without regard for weatherproofing
+
+3) Total atmospheric control to eliminate allergens, biting and stinging insects, and rising atmospheric pollution levels.
+
+4) Energy efficient heating in cold climates
+
+There's a 70s hippie streak to this movement that I don't quite vibe with, EG Warne avoided the use of plastics in his Nature House because of "concerns that plastic creates high concentrations of positive ions in the air that have negative effects on human health," and he experimented with venting the air from his compost chamber into the main greenhouse to recapture its humidity and warmth which, ick. He also refused an invitation to collaborate with Gerard K. O'Neill and NASA on O'Neill cylinders in the 1980s which clearly highlights some space between his views and mine. However, I _love_ the Nature House movement overall and definitely value them as aesthetic forerunners to what I'm hoping will happen with inflatable structures.
+
+# Air Cushion Roofs
+
+One of the more mature applications of inflatable structures is as a replacement for glass roofs. Architen Landrell has a great [application guide](https://www.architen.com/articles/etfe-foil-a-guide-to-design/) for their inflatable cushion roofs.
+
+<Im src="etfe_cushion_roof.jpg" cap="A fairly typical inflatable cushion roof. You mostly see long gutter types like this, or a grid of smaller cushions with aspect ratio closer to 1."/>
+
+These roofs use two or more layers of transparent ETFE film stretched across a light rigid frame instead of (much) heavier glass panes on a beefier frame. The space between the ETFE layers is gently pressurized (200-400 Pa, or 0.2-0.4% extra pressure over atmospheric) to get a taut, aesthetically pleasing surface instead of a wrinkly plastic bag appearance.
+
+These cushions can achieve better insulation and equivalent optical properties to glass at a small fraction of the weight and therefore cost. They also have a bunch of interesting surface treatment options to tweak the amount of light transmission and various aesthetic factors.
+
+However, the coolest trick they can do is to _actively control light transmission_ with [intelligent printing](https://www.architen.com/products/intelligent-printing/) or "fritting". It's beautifully simple: You add a third ETFE film within the cushion and print opposite checkerboard patterns on the top and middle film layers. Then by pumping air from one side of the middle film to the other you can move it closer or further from the top film. If you pump all the air under the middle film the two checkerboard patterns will press together and your entire top surface becomes opaque. If you pump all the air above the middle film, about half the incident light will find its way through both layers to brighten and warm your space. If you use several layers with sparser patterns, the maximum light transmission can be much higher.
+
+<Im src="etfe_fritting.jpg" cap="An example of active fritting from Architen Landrell's portfolio https://www.architen.com/projects/lancaster-university-iss-building/"/>
+
+The most affordable variant of this technology today seems to be modestly sized cushions with a light aluminum structure connecting them, but they say larger panels can be built with cable reinforcements between the films.
+
+# My Bubble
+
+If we're really lucky, this page will migrate to the [projects](nickparker.co/projects) section someday because I want to build one.
+
+Various sources set the power requirements of inflatable cushion roofs at about 1 kW for a blower unit that will support 2000 m^2 of roof. That's the rated power though and fan motors only pull rated power at startup though, so I suspect the levelized power consumption is closer to ~300 W (please reach out if you know more here!). If you're paying upstate New York rates of $0.07 per kWh that's $15 per month in power, or $51 if I'm wrong and these blowers pull their rated power 24/7.
+
+That roof area, 2000 m^2, happens to be almost exactly half an acre, which is the lot size of my family home in California. ETFE and (indoor) steel cable both have maintenance lifetimes above 30 years, so once you build this fairly expensive structure the recurring costs for a large home are a modest fraction of existing heating and cooling costs.
+
+My point is, the active nature of these structures wouldn't make them expensive. We haven't built these historically because they were hard to design, but "multiply redundant blower unit that makes a small, well controlled pressure head" is hobby level crap today.
+
+The cost of the cable is also fairly low: Let's play with 1/4" cable for reasonably easy manipulation. Each cable has a safe load of 5 kN so clusters of four each take 20 kN which buys you 67 m^2 of 300 Pa roof pressure for a cluster spacing of 8.8 meters (~28 feet) in a hexagonal grid, and about 30 clusters spread across your lot. If we suppose I have poor impulse control and allow myself to build a 25 meter ceiling, that's 3000 meters of 1/4" cable. $2000 from [here](https://www.thesteelsupplyco.com/wire-rope-bulk). You probably want to double that for reinforcing cables across the roof, but it's still a small cost.
+
+The fabric itself is another matter. If you're willing to use UV-protected greenhouse polyethylene, you can pay just a couple dollars per m^2 and the film cost is also under $10,000 for a half-acre lot, even if you want to do multiple film layers. Unfortunately that material will degrade outdoors and probably not last more than 10 years. If instead you'd like to use ETFE which this [review](https://www.irbnet.de/daten/iconda/CIB22466.pdf) (pdf) found _does not degrade_ even after 22 years of outdoor exposure, the lowest price I've found (on Alibaba at that, yikes) is $15 per m^2 which would be $30,000 per layer.
+
+This isn't a near-future project because I don't have anywhere to put it, but check back in five years if I'm living someplace cold and gainfully employed. I'll probably build a cheap one then upgrade to ETFE if I like it.
+
+
+# Idle Ideas
+
+One of the limiting factors in unsupported spans for inflatable roofs in snowy climates is snow load, because snow has a fairly shallow angle of repose. I would be very interested in experiments to **heat the top film layer of an inflatable structure to melt the very bottom of the snow** and create a lubricated surface for it to slide off. ETFE is stable up to 200 C so I suspect blowing hot air between the film layers would suffice, but you could also explore integrated resistive heating.
+
+I'm also very interested in seeing more **partially compressive inflatable structures**. [Tensairity](https://www.tensairitysolutions.com/) is a cool example - they're building inflatable beams that are far, far lighter than equivalently strong traditional trusses. For my bubble-living dreams, this would be a way to tension the roof membrane without meaningfully increasing its weight. The 300 Pa used in my cable spacing math above is necessary to pull the films taut so they look good. That's already a very modest pressure -- it's equivalent to around 33 feet of elevation change -- but it's enough to rule out car sized doors without airlocks. If you're only trying to support the _weight_ of say 3 mm of average ETFE thickness the necessary pressure is down around 45 Pa, which is low enough to just crank the fan a bit when you open the garage door. This would also allow you to eliminate your vertical steel cables.
+
+<Im src="tensairity.jpg" cap="A Tensairity beam supporting a bridge. Image via Tensairity"/>
+
+The mattress roof is super interesting to consider on the scale of a small town. If you have a server farm or other relatively clean industrial heat source, putting it under the same high-flying ETFE roof as a residential area is a great way to capture waste heat. More generally, I'd love to better understand greenhouse temperature management and how these roofs might pair with highly efficient modern heat pumps to reduce heating costs in winter climates.
+
+Lastly, I really hope more architects read Casey's post or mine and make the connection to their work. I want to see bold visions for the future of human habitation once we engineer out banal problems like 'rain,' 'wind,' and 'cold.' Living under a kilometer high roof is the closest I'll get to living in an O'neill cylinder before retirement, and I think it's going to take a whole new generation of architects to ferret out all the advantages of a controlled climate.
+
+# Why am I posting this?
+
+Like I said in the beginning, this one's fairly seat of my pants. I think the core idea bouncing around my head is "You could build idyllic outdoor conditions anywhere in the world at a modest price" and that's compelling enough to hold my attention. I don't have a grand sweeping vision for why bubbles will take over the world, but a lot of vague notions make me think they're coming.
+
+And of course, I'm hoping a billionaire will pop up to build a bubble town someplace stark. Kanye, [domes are silly](https://www.gq.com/story/inside-kanye-west-vision-for-the-future-cover-may-2020), hmu if you want to turn that Wyoming ranch into the south of France.
+
+</ExcitingPage>

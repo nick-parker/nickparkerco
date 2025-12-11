@@ -1,0 +1,18 @@
+{
+  "[mdx]": {
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 80,
+    "editor.rulers": [80]
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 80,
+    "editor.rulers": [80]
+  },
+  "jupyter.widgetScriptSources": [
+    "jsdelivr.com",
+    "unpkg.com"
+  ],
+  "notebook.output.textLineLimit": 0,
+  "jupyter.interactiveWindow.creationMode": "perFile"
+}
