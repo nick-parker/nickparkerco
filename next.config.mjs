@@ -1,10 +1,9 @@
-import remarkGfm from "remark-gfm";
 import createMDX from "@next/mdx";
+import remarkGfm from "remark-gfm";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+  pageExtensions: ["js", "jsx", "md", "mdx"],
   async redirects() {
     return [
       {
