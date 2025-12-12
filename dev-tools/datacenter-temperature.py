@@ -141,9 +141,14 @@ def absorbed_solar_power_density(min_nm, max_nm, step=1.0):
     F  = am0_irradiance_nm(wl)
     return float(np.trapezoid(F, wl))
 
-
+# Double sided plate gives surprisingly cool temperatures, but NASA agrees. https://ntrs.nasa.gov/api/citations/19680004801/downloads/19680004801.pdf
+# With significant earth-shine they find thin film PV equilibrium at 73C with no special reflective coatings.
+# Our intended orbit is SSO with the array edge-on for drag reasons, so earth-shine should be a pretty small fraction of plate area.
+# Nonetheless, for pessimism we increase area_ratio somewhat to set no-filter to 73C.
+# Note that realistic / ambitious engineered designs would likely use at least a small amount of finned structure on the backface for rigidity, and enjoy
+# a decreased area_ratio by dint of that.
 def equilibrium_temperature(min_nm, max_nm, step=1.0,
-                            area_ratio=1.0,  # Flat plate default (1.0)
+                            area_ratio=0.6,  # Flat plate with both sides emitting default
                             absorptivity=1.0):
     """
     Radiative equilibrium temperature for an object that:
@@ -154,6 +159,7 @@ def equilibrium_temperature(min_nm, max_nm, step=1.0,
     area_ratio = A_absorb / A_emit.
       sphere → 1/4
       flat plate → 1
+      flat plate emitting both sides → 1/2
     """
     P_abs = absorbed_solar_power_density(min_nm, max_nm, step) * absorptivity
     T = (P_abs * area_ratio / SIGMA_SB) ** 0.25
