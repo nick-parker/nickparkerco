@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1900" role="img" aria-labelledby="title desc">
+  <title id="title">Dual-tether lunar sling vertical storyboard</title>
+  <desc id="desc">Four stacked schematic panels showing a Lunar Starship used as a tower, a rotating hub, a short regolith counterweight tether, a longer primary launch tether, and an elevator line moving a shot to the launch platform before release.</desc>
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .panel { fill: #ffffff; stroke: #d8dde2; stroke-width: 2; }
+      .title { font: 700 34px Arial, sans-serif; fill: #18232d; }
+      .subtitle { font: 18px Arial, sans-serif; fill: #50616f; }
+      .panel-title { font: 700 24px Arial, sans-serif; fill: #172532; }
+      .step-dot { fill: #172532; }
+      .step-num { font: 700 20px Arial, sans-serif; fill: #ffffff; }
+      .label { font: 15px Arial, sans-serif; fill: #283744; }
+      .small { font: 13px Arial, sans-serif; fill: #5a6975; }
+      .moon { fill: #f2f4f6; stroke: #d7dde2; stroke-width: 1.5; }
+      .starship-body { fill: #f9fbfd; stroke: #2c3640; stroke-width: 2; }
+      .starship-black { fill: #111820; }
+      .starship-line { stroke: #a8b2ba; stroke-width: 1.2; }
+      .hub { fill: #1d2e3b; stroke: #0c151c; stroke-width: 2; }
+      .primary-soft { stroke: #89afd0; stroke-width: 17; stroke-linecap: round; opacity: 0.22; }
+      .primary { stroke: #236394; stroke-width: 9; stroke-linecap: round; }
+      .elevator { stroke: #c33d4c; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 8 7; }
+      .cw-soft { stroke: #9fbea7; stroke-width: 15; stroke-linecap: round; opacity: 0.24; }
+      .cw { stroke: #3d7458; stroke-width: 8; stroke-linecap: round; }
+      .platform { fill: #f2b94f; stroke: #684813; stroke-width: 2; }
+      .shot { fill: #d84b5c; stroke: #842230; stroke-width: 2; }
+      .carrier { fill: #ffffff; stroke: #a6313e; stroke-width: 2; }
+      .regolith { fill: #7e7162; stroke: #3d352d; stroke-width: 2; }
+      .guy { stroke: #687680; stroke-width: 2; stroke-dasharray: 5 5; }
+    </style>
+
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#1e2b35"/>
+    </marker>
+    <marker id="releaseArrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#d14a2a"/>
+    </marker>
+
+    <g id="lunar-starship">
+      <path class="starship-body" d="M22 0 C37 15 45 39 45 70 L45 158 C45 179 35 199 23 214 C11 199 1 179 1 158 L1 70 C1 39 8 15 22 0 Z"/>
+      <path class="starship-black" d="M29 17 C38 33 42 52 42 72 L42 91 L27 91 L27 22 Z"/>
+      <rect class="starship-black" x="3" y="142" width="42" height="26" rx="3"/>
+      <path class="starship-black" d="M3 161 L-11 193 L5 187 L13 162 Z"/>
+      <path class="starship-black" d="M45 161 L59 193 L43 187 L35 162 Z"/>
+      <line class="starship-line" x1="9" y1="60" x2="37" y2="60"/>
+      <line class="starship-line" x1="7" y1="102" x2="39" y2="102"/>
+      <circle fill="#1d2e3b" cx="20" cy="38" r="4"/>
+      <circle fill="#1d2e3b" cx="20" cy="52" r="4"/>
+      <path class="starship-body" d="M6 214 L40 214 L48 246 L-2 246 Z"/>
+    </g>
+
+    <g id="common-structure">
+      <line class="guy" x1="306" y1="288" x2="185" y2="356"/>
+      <line class="guy" x1="344" y1="288" x2="468" y2="356"/>
+      <line class="guy" x1="325" y1="172" x2="150" y2="356"/>
+      <line class="guy" x1="325" y1="172" x2="503" y2="356"/>
+      <use href="#lunar-starship" x="302" y="157"/>
+      <circle class="hub" cx="325" cy="150" r="16"/>
+      <line class="cw-soft" x1="325" y1="150" x2="190" y2="150"/>
+      <line class="cw" x1="325" y1="150" x2="190" y2="150"/>
+      <circle class="regolith" cx="174" cy="150" r="30"/>
+      <line class="primary-soft" x1="325" y1="150" x2="930" y2="150"/>
+      <line class="primary" x1="325" y1="150" x2="930" y2="150"/>
+      <line class="elevator" x1="325" y1="135" x2="930" y2="135"/>
+      <rect class="platform" x="906" y="126" width="52" height="48" rx="6"/>
+      <ellipse class="moon" cx="325" cy="402" rx="265" ry="20"/>
+    </g>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="1900"/>
+  <text class="title" x="60" y="58">Dual-tether lunar sling operation</text>
+  <text class="subtitle" x="60" y="88">Pictorial scale is compressed: tethers are *much* longer in reality.</text>
+
+  <g transform="translate(60 125)">
+    <rect class="panel" x="0" y="0" width="1080" height="385" rx="8"/>
+    <circle class="step-dot" cx="34" cy="36" r="18"/>
+    <text class="step-num" x="28" y="43">1</text>
+    <text class="panel-title" x="62" y="43">Shot loaded up the Starship tower</text>
+    <use href="#common-structure"/>
+    <text class="label" x="125" y="113">regolith counterweight</text>
+    <text class="label" x="690" y="113">primary tether + guided elevator</text>
+    <rect class="carrier" x="342" y="119" width="38" height="28" rx="5"/>
+    <circle class="shot" cx="325" cy="112" r="12"/>
+    <text class="label" x="392" y="125">elevator carrier at hub</text>
+    <text class="label" x="354" y="105">shot enters hub carousel</text>
+  </g>
+
+  <g transform="translate(60 540)">
+    <rect class="panel" x="0" y="0" width="1080" height="385" rx="8"/>
+    <circle class="step-dot" cx="34" cy="36" r="18"/>
+    <text class="step-num" x="28" y="43">2</text>
+    <text class="panel-title" x="62" y="43">Elevator lowers the shot outward</text>
+    <use href="#common-structure"/>
+    <rect class="carrier" x="602" y="119" width="38" height="28" rx="5"/>
+    <circle class="shot" cx="621" cy="133" r="11"/>
+    <text class="label" x="510" y="91">guided elevator carrier</text>
+  </g>
+
+  <g transform="translate(60 955)">
+    <rect class="panel" x="0" y="0" width="1080" height="385" rx="8"/>
+    <circle class="step-dot" cx="34" cy="36" r="18"/>
+    <text class="step-num" x="28" y="43">3</text>
+    <text class="panel-title" x="62" y="43">Carrier docks and unloads shot</text>
+    <use href="#common-structure"/>
+    <rect class="carrier" x="880" y="119" width="38" height="28" rx="5"/>
+    <circle class="shot" cx="931" cy="150" r="12"/>
+    <text class="label" x="672" y="91">load transfers into platform</text>
+  </g>
+
+  <g transform="translate(60 1370)">
+    <rect class="panel" x="0" y="0" width="1080" height="385" rx="8"/>
+    <circle class="step-dot" cx="34" cy="36" r="18"/>
+    <text class="step-num" x="28" y="43">4</text>
+    <text class="panel-title" x="62" y="43">Shot releases; platform remains</text>
+    <use href="#common-structure"/>
+    <line class="elevator" x1="325" y1="135" x2="902" y2="135"/>
+    <circle class="shot" cx="1010" cy="105" r="12"/>
+    <text class="label" x="838" y="91">release</text>
+  </g>
+
+  <g transform="translate(60 1830)">
+    <line class="primary" x1="0" y1="0" x2="52" y2="0"/>
+    <text class="small" x="64" y="5">primary launch tether</text>
+    <line class="elevator" x1="250" y1="0" x2="302" y2="0"/>
+    <text class="small" x="314" y="5">elevator line / carrier path</text>
+    <line class="cw" x1="562" y1="0" x2="614" y2="0"/>
+    <text class="small" x="626" y="5">counterweight tether</text>
+    <rect class="platform" x="850" y="-18" width="36" height="36" rx="5"/>
+    <text class="small" x="900" y="5">launch platform</text>
+    <circle class="shot" cx="1075" cy="0" r="12"/>
+    <text class="small" x="1096" y="5">shot</text>
+  </g>
+</svg>
